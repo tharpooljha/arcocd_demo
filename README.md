@@ -28,7 +28,7 @@ This solution benefits any organization that wants the advantages of deploying a
 `kubectl port-forward --address 0.0.0.0 svc/argocd-server -n argocd 8080:443`
     - Setup an [Ingress Controller](https://argo-cd.readthedocs.io/en/stable/operator-manual/ingress/)
 5. Access admin UI https://52.153.251.182/ by getting password from kubectl secerts
-`kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d`
+`kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d && echo`
 ```
                     Username: admin
                     Password: xxx
