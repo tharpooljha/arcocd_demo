@@ -1,0 +1,18 @@
+project: services
+source:
+  repoURL: 'https://github.com/fluxcd/flagger/'
+  path: charts/flagger
+  targetRevision: HEAD
+  helm:
+    parameters:
+      - name: meshProvider
+        value: istio
+destination:
+  server: 'https://kubernetes.default.svc'
+  namespace: flagger
+syncPolicy:
+  automated:
+    prune: true
+    selfHeal: true
+  syncOptions:
+    - CreateNamespace=true

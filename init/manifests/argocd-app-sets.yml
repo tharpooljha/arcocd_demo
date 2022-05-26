@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: guestbook
+spec:
+  generators:
+  - list:
+      elements:
+      - cluster: environment-dev
+        url: https://istio-dev-scus-aks-dns-80b45932.hcp.southcentralus.azmk8s.io
+      - cluster: environment-qa
+        url: https://kubernetes.default.svc
+        values:
+          additional: value-test
+  template:
+    metadata:
+      name: '{{cluster}}-guestbook'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/argoproj/applicationset.git
+        targetRevision: HEAD
+        path: examples/list-generator/guestbook/{{cluster}}
+      destination:
+        server: '{{url}}'
+        namespace: guestbook

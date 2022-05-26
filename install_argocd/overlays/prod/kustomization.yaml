@@ -1,0 +1,7 @@
+# namePrefix: prod-
+resources:
+- https://raw.githubusercontent.com/argoproj/argo-cd/master/manifests/ha/namespace-install.yaml
+- https://raw.githubusercontent.com/argoproj/argo-cd/master/manifests/ha/install.yaml
+# changes to config maps
+patchesStrategicMerge:
+- ./argo-cd-cm.yaml
