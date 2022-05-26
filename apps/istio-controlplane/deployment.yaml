@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: istio-controlplane
+spec:
+  destination:
+    name: ''
+    namespace: istio-system
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: istio-controlplane
+    repoURL: 'https://github.com/argoproj/argoproj-deployments'
+    targetRevision: HEAD
+  project: services
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false

@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argo-cd
+  namespace: argocd
+   # Add this finalizer ONLY if you want these to cascade delete.
+spec:
+  # The project the application belongs to.
+  project: services
+  source:
+    repoURL: https://argoproj.github.io/argo-helm
+    targetRevision: 1.0.0
+    chart: argo
+    helm:
+      version: v3
+#    plugin:
+#      name: argocd-vault-plugin
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+  syncPolicy:
+    automated:
+      prune: true
+      allowEmpty: true
+      selfHeal: true

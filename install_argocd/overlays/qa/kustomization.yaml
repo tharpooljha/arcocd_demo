@@ -1,0 +1,3 @@
+# namePrefix: qa-
+resources:
+- ../../base
