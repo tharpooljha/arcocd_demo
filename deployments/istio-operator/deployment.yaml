@@ -4,7 +4,7 @@ metadata:
   name: istio-operator
 spec:
   destination:
-    name: ''
+    name: 'istio-operator'
     namespace: istio-operator
     server: 'https://kubernetes.default.svc'
   source:
