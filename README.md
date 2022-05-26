@@ -97,3 +97,4 @@ By default, the Helm release name is equal to the Application name to which it b
 - [Integration Istio with DevOps](https://argoproj.github.io/argo-rollouts/features/traffic-management/istio/#integrating-with-gitops)
 - [Argo Rollout Examples](https://github.com/argoproj/argo-rollouts/tree/master/examples)
 - [Microsoft Gitops](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks?WT.mc_id=containers-52942-jessde)
+- [OpenSource.com automating ArgoCD with apps of apps pattern](https://opensource.com/article/21/7/automating-argo-cd)
