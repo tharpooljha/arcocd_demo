@@ -1,3 +1,5 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
 project: services
 source:
   repoURL: 'https://github.com/fluxcd/flagger/'
