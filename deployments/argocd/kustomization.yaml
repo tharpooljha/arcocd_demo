@@ -1,3 +1,4 @@
+# To use Kustomize with an overlay, point your path to the overlay.
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: argocd
@@ -10,3 +11,9 @@ resources:
 #- clusters-secrets.yaml
 #- repos-secrets.yaml
 
+namespace: argocd
+
+images:
+- name: quay.io/argoproj/argocd
+  newName: ghcr.io/argoproj/argocd
+  newTag: 2.4.0-dd4dbe2a
