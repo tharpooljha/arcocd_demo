@@ -5,6 +5,7 @@ source:
   repoURL: 'https://github.com/fluxcd/flagger/'
   path: charts/flagger
   targetRevision: HEAD
+  chart: charts/flagger
   helm:
     parameters:
       - name: meshProvider
