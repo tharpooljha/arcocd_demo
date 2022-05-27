@@ -8,7 +8,7 @@ spec:
       repoURL: https://github.com/tharpooljha/argocd_demo
       revision: HEAD
       directories:
-      - path: apps/*
+      - path: deployments/*
   template:
     metadata:
       name: '{{path.basename}}'
