@@ -4,7 +4,5 @@ kind: Kustomization
 namespace: argocd
 
 
-images:
-- name: quay.io/argoproj/argocd
-  newName: ghcr.io/argoproj/argocd
-  newTag: 2.4.0-dd4dbe2a
+resources:
+ - deployment.yaml
