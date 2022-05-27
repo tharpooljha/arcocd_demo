@@ -2,18 +2,9 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: argocd
-resources:
-- https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
-# additional resources like ingress rules, cluster and repository secrets.
-#resources:
- - base/namespace.yaml
-# - configmap.yaml
-#- clusters-secrets.yaml
-#- repos-secrets.yaml
 
-namespace: argocd
 
-# images:
-# - name: quay.io/argoproj/argocd
-#   newName: ghcr.io/argoproj/argocd
-#   newTag: 2.4.0-dd4dbe2a
+images:
+- name: quay.io/argoproj/argocd
+  newName: ghcr.io/argoproj/argocd
+  newTag: 2.4.0-dd4dbe2a
