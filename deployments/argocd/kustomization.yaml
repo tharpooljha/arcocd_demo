@@ -5,8 +5,8 @@ namespace: argocd
 bases:
 - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 # additional resources like ingress rules, cluster and repository secrets.
-resources:
- - namespace.yaml
+#resources:
+# - namespace.yaml
 # - configmap.yaml
 #- clusters-secrets.yaml
 #- repos-secrets.yaml
