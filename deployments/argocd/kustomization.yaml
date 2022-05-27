@@ -6,7 +6,7 @@ bases:
 - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 # additional resources like ingress rules, cluster and repository secrets.
 #resources:
-# - namespace.yaml
+ - base/namespace.yaml
 # - configmap.yaml
 #- clusters-secrets.yaml
 #- repos-secrets.yaml
