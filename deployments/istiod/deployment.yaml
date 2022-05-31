@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    chart: istio
+    chart: istio/istiod
     repoURL: https://istio-release.storage.googleapis.com/charts
     targetRevision: 1.13.4
     helm:
