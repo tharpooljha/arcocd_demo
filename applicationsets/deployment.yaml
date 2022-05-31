@@ -12,6 +12,7 @@ spec:
   template:
     metadata:
       name: '{{path.basename}}'
+      namespace: argocd
     spec:
       project: services # If something is an app and not a service, we need another entry here.
       source:
@@ -20,5 +21,5 @@ spec:
         path: '{{path}}'
       destination:
         server: https://kubernetes.default.svc
-        namespace: argocd
+        namespace: '{{path.basename}}' 
         # this doesn't work well when istio-addons should be on istio-system. This template seems to override.

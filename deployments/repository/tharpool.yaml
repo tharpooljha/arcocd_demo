@@ -2,11 +2,8 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: private-repo
-  namespace: argocd
   labels:
     argocd.argoproj.io/secret-type: repository
 stringData:
   type: git
   url: https://github.com/tharpooljha/argocd_demo
-  password: tharpool
-  username: ${{ secrets.GITHUB_TOKEN }}
