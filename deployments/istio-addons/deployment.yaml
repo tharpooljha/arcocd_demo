@@ -4,7 +4,6 @@ metadata:
   name: istio-addons
 spec:
   destination:
-    name: istio-addons
     namespace: istio-system
     server: https://kubernetes.default.svc
   source:
