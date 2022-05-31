@@ -9,8 +9,8 @@ spec:
     chart: sealed-secrets
     repoURL: https://bitnami-labs.github.io/sealed-secrets
     targetRevision: 1.16.1
-    helm:
-      releaseName: sealed-secrets
+    # helm:
+    #   releaseName: sealed-secrets
   destination:
     server: "https://kubernetes.default.svc"
     namespace: kubeseal
