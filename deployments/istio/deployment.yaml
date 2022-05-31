@@ -15,10 +15,10 @@ spec:
     chart: istio-base
     repoURL: https://istio-release.storage.googleapis.com/charts
     targetRevision: 1.13.3
-  helm:
-    parameters:
-     - name: defaultRevision
-       value: 1.13.3
+    helm:
+     parameters:
+      - name: defaultRevision
+        value: 1.13.3
 
     #  releaseName: istiod # this overrides the above. What is the point?
     # valueFiles:
