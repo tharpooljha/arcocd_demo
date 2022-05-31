@@ -8,5 +8,5 @@ metadata:
 stringData:
   type: git
   url: https://github.com/tharpooljha/argocd_demo
-  password: admin
-  username: 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
+  password: tharpool
+  username: ${{ secrets.GITHUB_TOKEN }}
