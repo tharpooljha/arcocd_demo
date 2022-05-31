@@ -6,11 +6,13 @@ metadata:
 spec:
   project: services
   syncPolicy:
-   automated:
-    prune: true
-    selfHeal: true
+    automated:
+     prune: true
+     selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
   source:
-    chart: istiod
+    chart: istio
     repoURL: https://istio-release.storage.googleapis.com/charts
     targetRevision: 1.13.4
     #helm:

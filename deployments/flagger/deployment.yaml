@@ -20,7 +20,7 @@ spec:
 #      name: argocd-vault-plugin
   destination:
     server: https://kubernetes.default.svc
-    namespace: flagger
+    namespace: istio-system
 syncPolicy:
   automated:
     prune: true
