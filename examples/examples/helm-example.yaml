@@ -4,11 +4,7 @@ metadata:
   name: istio
   namespace: argocd
 spec:
-  project: services
-  syncPolicy:
-   automated:
-    prune: true
-    selfHeal: true
+  project: default
   source:
     chart: istiod
     repoURL: https://istio-release.storage.googleapis.com/charts
