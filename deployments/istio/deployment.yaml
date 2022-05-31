@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: istio
+  name: istio-base
   namespace: argocd
 spec:
   project: services
@@ -13,6 +13,38 @@ spec:
     - CreateNamespace=true
   source:
     chart: istio-base
+    repoURL: https://istio-release.storage.googleapis.com/charts
+    targetRevision: 1.13.3
+    helm:
+     parameters:
+      - name: defaultRevision
+        value: 1.13.3
+
+    #  releaseName: istiod # this overrides the above. What is the point?
+    # valueFiles:
+    # - values.yaml
+    # values: | # we can create inline values. Which one to use?
+    #   ingress:
+    #     enabled: false
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: istio-system
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: istiod
+  namespace: argocd
+spec:
+  project: services
+  syncPolicy:
+    automated:
+     prune: true
+     selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+  source:
+    chart: istiod
     repoURL: https://istio-release.storage.googleapis.com/charts
     targetRevision: 1.13.3
     helm:
