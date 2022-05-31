@@ -12,10 +12,11 @@ spec:
     syncOptions:
     - CreateNamespace=true
   source:
-    chart: istio
+    chart: istio-base
     repoURL: https://istio-release.storage.googleapis.com/charts
     targetRevision: 1.13.4
-    #helm:
+    helm:
+      defaultRevision: 1.13.4
     #  releaseName: istiod # this overrides the above. What is the point?
     # valueFiles:
     # - values.yaml
