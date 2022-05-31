@@ -20,5 +20,5 @@ spec:
         path: '{{path}}'
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{path.basename}}' 
+        namespace: argocd
         # this doesn't work well when istio-addons should be on istio-system. This template seems to override.
