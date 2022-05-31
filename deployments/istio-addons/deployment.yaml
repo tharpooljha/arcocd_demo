@@ -4,12 +4,12 @@ metadata:
   name: istio-addons
 spec:
   destination:
-    name: 'istio-addons'
+    name: istio-addons
     namespace: istio-system
-    server: 'https://kubernetes.default.svc'
+    server: https://kubernetes.default.svc
   source:
     path: samples/addons
-    repoURL: 'https://github.com/istio/istio'
+    repoURL: https://github.com/istio/istio
     targetRevision: release-1.7
   project: services
   syncPolicy:
