@@ -14,8 +14,8 @@ spec:
   source:
     chart: istio-base
     repoURL: https://istio-release.storage.googleapis.com/charts
-    targetRevision: 1.13.4
-    defaultRevision: 1.13.4
+    targetRevision: 1.13.3
+    defaultRevision: 1.13.3
 #    helm:
 
     #  releaseName: istiod # this overrides the above. What is the point?
