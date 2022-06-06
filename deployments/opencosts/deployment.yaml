@@ -10,7 +10,7 @@ spec:
   project: services
   source:
     repoURL: https://kubecost.github.io/cost-analyzer/
-    targetRevision: latest
+    targetRevision: 1.93.2
     chart: kubecost/cost-analyzer
     helm:
      parameters:
