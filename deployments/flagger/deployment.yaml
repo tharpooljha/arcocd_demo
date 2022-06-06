@@ -17,8 +17,12 @@ spec:
      parameters:
       - name: meshProvider
         value: istio
-      - name: include-crds
-        value: https://raw.githubusercontent.com/fluxcd/flagger/main/artifacts/flagger/crd.yaml
+ #     - name: include-crds
+ #       value: https://raw.githubusercontent.com/fluxcd/flagger/main/artifacts/flagger/crd.yaml
+      - name: crd.create
+        value: false
+      - name: metricsServer
+        value: http://prometheus.istio-system:9090
 #    plugin:
 #      name: argocd-vault-plugin
   destination:
