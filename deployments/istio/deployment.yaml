@@ -18,7 +18,7 @@ spec:
     helm:
      parameters:
       - name: defaultRevision
-        value: 1.13.3
+        value: 1.14.0
 
     #  releaseName: istiod # this overrides the above. What is the point?
     # valueFiles:
@@ -62,9 +62,9 @@ spec:
     helm:
      parameters:
       - name: defaultRevision
-        value: 1.13.3
+        value: 1.14.0
       - name: revision
-        value: 1.13.3
+        value: 1.14.0
 
     #  releaseName: istiod # this overrides the above. What is the point?
     # valueFiles:
