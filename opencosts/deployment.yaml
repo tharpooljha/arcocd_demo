@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: opencosts
+  namespace: argocd
+  finalizers:
+   - resources-finalizer.argocd.argoproj.io
+spec:
+  # The project the application belongs to.
+  project: services
+  source:
+    repoURL: https://kubecost.github.io/cost-analyzer/
+    targetRevision: latest
+    chart: kubecost/cost-analyzer
+    helm:
+     parameters:
+      - name: kubecostToken
+        value: dGhhcnBvb2xAamFja2hlbnJ5LmNvbQ==xm343yadf98
+#    plugin:
+#      name: argocd-vault-plugin
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kubecost
+syncPolicy:
+  automated:
+    prune: true
+    selfHeal: true
+  syncOptions:
+    - CreateNamespace=true
