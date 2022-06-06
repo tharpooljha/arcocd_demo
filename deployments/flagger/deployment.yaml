@@ -9,7 +9,7 @@ spec:
   # The project the application belongs to.
   project: services
   source:
-    repoURL: https://github.com/fluxcd/flagger
+    repoURL: https://flagger.app
     targetRevision: latest
     chart: charts/flagger
     helm:
