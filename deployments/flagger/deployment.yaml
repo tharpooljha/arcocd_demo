@@ -12,6 +12,7 @@ spec:
     repoURL: https://flagger.app
     targetRevision: latest
     chart: charts/flagger
+    targetRevision: 1.21.0
     helm:
      parameters:
       - name: meshProvider
