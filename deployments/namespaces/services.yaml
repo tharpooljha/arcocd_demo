@@ -4,3 +4,4 @@ metadata:
   name: services
   labels:
     name: services
+    istio-injection: enabled

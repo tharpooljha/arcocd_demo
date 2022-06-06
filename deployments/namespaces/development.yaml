@@ -4,3 +4,4 @@ metadata:
   name: development
   labels:
     name: development
+    istio-injection: enabled
