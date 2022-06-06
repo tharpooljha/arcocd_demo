@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: flagger
+  name: opencosts
   namespace: argocd
   finalizers:
    - resources-finalizer.argocd.argoproj.io
@@ -9,18 +9,18 @@ spec:
   # The project the application belongs to.
   project: services
   source:
-    repoURL: https://github.com/fluxcd/flagger
+    repoURL: https://kubecost.github.io/cost-analyzer/
     targetRevision: latest
-    chart: charts/flagger
+    chart: kubecost/cost-analyzer
     helm:
      parameters:
-      - name: meshProvider
-        value: istio
+      - name: kubecostToken
+        value: dGhhcnBvb2xAamFja2hlbnJ5LmNvbQ==xm343yadf98
 #    plugin:
 #      name: argocd-vault-plugin
   destination:
     server: https://kubernetes.default.svc
-    namespace: istio-system
+    namespace: kubecost
   syncPolicy:
    automated:
     prune: true
