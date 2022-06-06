@@ -44,6 +44,8 @@ spec:
     syncOptions:
     - CreateNamespace=true
     - ApplyOutOfSyncOnly=true
+    - PruneLast=true
+    - FailOnSharedResource=true
   source:
     chart: istiod
     repoURL: https://istio-release.storage.googleapis.com/charts
