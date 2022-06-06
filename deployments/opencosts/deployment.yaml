@@ -21,9 +21,9 @@ spec:
   destination:
     server: https://kubernetes.default.svc
     namespace: kubecost
-syncPolicy:
-  automated:
+  syncPolicy:
+   automated:
     prune: true
     selfHeal: true
-  syncOptions:
+   syncOptions:
     - CreateNamespace=true
