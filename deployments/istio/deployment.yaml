@@ -65,6 +65,8 @@ spec:
         value: 1.14.0
       - name: revision
         value: 1.14.0
+      - name: revisionTags
+        value: prod
 
     #  releaseName: istiod # this overrides the above. What is the point?
     # valueFiles:
