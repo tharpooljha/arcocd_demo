@@ -17,6 +17,8 @@ spec:
      parameters:
       - name: meshProvider
         value: istio
+      - name: include-crds
+        value: https://raw.githubusercontent.com/fluxcd/flagger/main/artifacts/flagger/crd.yaml
 #    plugin:
 #      name: argocd-vault-plugin
   destination:
