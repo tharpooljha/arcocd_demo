@@ -3,60 +3,23 @@
     "kind": "Namespace",
     "metadata": {
         "annotations": {
-            "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Namespace\",\"metadata\":{\"annotations\":{},\"name\":\"argocd\"}}\n"
+            "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Namespace\",\"metadata\":{\"annotations\":{},\"creationTimestamp\":\"2022-05-04T17:43:05Z\",\"labels\":{\"kubernetes.io/metadata.name\":\"istio-system\",\"name\":\"istio-system\"},\"managedFields\":[{\"apiVersion\":\"v1\",\"fieldsType\":\"FieldsV1\",\"fieldsV1\":{\"f:metadata\":{\"f:annotations\":{\".\":{},\"f:kubectl.kubernetes.io/last-applied-configuration\":{}},\"f:labels\":{\".\":{},\"f:app.kubernetes.io/instance\":{},\"f:kubernetes.io/metadata.name\":{},\"f:name\":{}}}},\"manager\":\"argocd-application-controller\",\"operation\":\"Update\",\"time\":\"2022-06-06T19:29:22Z\"}],\"name\":\"istio-system\",\"resourceVersion\":\"16442208\",\"uid\":\"6620c81f-eb7c-48ea-b31b-d7e5bee69808\"},\"spec\":{\"finalizers\":[\"kubernetes\"]},\"status\":{\"phase\":\"Active\"}}\n"
         },
-        "creationTimestamp": "2022-05-24T21:08:17Z",
-        "deletionTimestamp": "2022-05-24T21:14:46Z",
+        "creationTimestamp": "2022-05-04T17:43:05Z",
         "labels": {
-            "kubernetes.io/metadata.name": "argocd"
+            "kubernetes.io/metadata.name": "istio-system",
+            "name": "istio-system"
         },
-        "name": "argocd",
-        "resourceVersion": "11763247",
-        "uid": "4d83cdb5-fc4a-4e69-b6f1-f46188a75cb9"
+        "name": "istio-system",
+        "resourceVersion": "16442236",
+        "uid": "6620c81f-eb7c-48ea-b31b-d7e5bee69808"
     },
     "spec": {
         "finalizers": [
-       
+         
         ]
     },
     "status": {
-        "conditions": [
-            {
-                "lastTransitionTime": "2022-05-24T21:14:53Z",
-                "message": "All resources successfully discovered",
-                "reason": "ResourcesDiscovered",
-                "status": "False",
-                "type": "NamespaceDeletionDiscoveryFailure"
-            },
-            {
-                "lastTransitionTime": "2022-05-24T21:14:53Z",
-                "message": "All legacy kube types successfully parsed",
-                "reason": "ParsedGroupVersions",
-                "status": "False",
-                "type": "NamespaceDeletionGroupVersionParsingFailure"
-            },
-            {
-                "lastTransitionTime": "2022-05-24T21:14:53Z",
-                "message": "All content successfully deleted, may be waiting on finalization",
-                "reason": "ContentDeleted",
-                "status": "False",
-                "type": "NamespaceDeletionContentFailure"
-            },
-            {
-                "lastTransitionTime": "2022-05-24T21:14:53Z",
-                "message": "Some resources are remaining: applications.argoproj.io has 2 resource instances",
-                "reason": "SomeResourcesRemain",
-                "status": "True",
-                "type": "NamespaceContentRemaining"
-            },
-            {
-                "lastTransitionTime": "2022-05-24T21:14:53Z",
-                "message": "Some content in the namespace has finalizers remaining: resources-finalizer.argocd.argoproj.io in 2 resource instances",
-                "reason": "SomeFinalizersRemain",
-                "status": "True",
-                "type": "NamespaceFinalizersRemaining"
-            }
-        ],
-        "phase": "Terminating"
+        "phase": "Active"
     }
 }

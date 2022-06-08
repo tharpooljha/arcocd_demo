@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: flagger-prod
+  name: flagger-dev
   namespace: argocd
   finalizers:
    - resources-finalizer.argocd.argoproj.io
@@ -27,7 +27,7 @@ spec:
 #      name: argocd-vault-plugin
   destination:
     server: https://kubernetes.default.svc
-    namespace: istio-system
+    namespace: istio-system-dev
   syncPolicy:
    automated:
     prune: true
