@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: guestbook
+  name: infastructure-appsets
 spec:
   generators:
   - list:
@@ -20,19 +20,19 @@ spec:
             revision: HEAD
             repoURL: https://github.com/tharpooljha/argocd_demo
             # New path value is generated here:
-            path: 'deployment/*/{{cluster}}'
+            path: deployments/*
           destination: {}
 
   template:
     metadata:
-      name: '{{cluster}}-guestbook'
+      name: '{{cluster}}-{{path.basename}}'
     spec:
-      project: "default"
+      project: "services"
       source:
         repoURL: https://github.com/tharpooljha/argocd_demo
         targetRevision: HEAD
         # This 'default' value is not used: it is is replaced by the generator's template path, above
-        path: deployments/*
+        path: 'deployment/*/{{cluster}}'
       destination:
         server: '{{url}}'
         namespace: '{{path.basename}}'
