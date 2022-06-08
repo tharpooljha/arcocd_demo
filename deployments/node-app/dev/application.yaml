@@ -10,6 +10,8 @@ spec:
     repoURL: https://github.com/tharpooljha/argocd_demo
     targetRevision: HEAD
     path: deployment/node-app/dev
+    plugin:
+      name: argocd-vault-plugin
   destination: 
     server: https://kubernetes.default.svc
     namespace: development
