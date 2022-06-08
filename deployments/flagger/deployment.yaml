@@ -20,7 +20,7 @@ spec:
  #     - name: include-crds
  #       value: https://raw.githubusercontent.com/fluxcd/flagger/main/artifacts/flagger/crd.yaml
       - name: crd.create
-        value: false
+        value: "false"
       - name: metricsServer
         value: http://prometheus.monitoring:9090
 #    plugin:
