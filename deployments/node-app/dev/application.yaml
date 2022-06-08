@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/tharpooljha/argocd_demo
     targetRevision: HEAD
-    path: deployment/node-app
+    path: deployment/node-app/dev
   destination: 
     server: https://kubernetes.default.svc
     namespace: development
