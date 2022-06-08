@@ -1,38 +1,38 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: cluster-infastructure
+  name: guestbook
 spec:
   generators:
   - list:
-     elements:
-       - cluster: dev
-         url: https://kubernetes.default.svc
-     template:
-       metadata: {}
-       spec:
-        project: "services"
-        source:
-          revision: HEAD
-          repoURL: https://github.com/argoproj/applicationset.git
+      elements:
+        - cluster: dev
+          url: https://kubernetes.default.svc
+        - cluster: prod
+          url: https://kubernetes.default.svc
+        - cluster: qa
+          url: https://kubernetes.default.svc
+      template:
+        metadata: {}
+        spec:
+          project: "services"
+          source:
+            revision: HEAD
+            repoURL: https://github.com/tharpooljha/argocd_demo
             # New path value is generated here:
-          path: 'examples/template-override/{{cluster}}'
-        destination: {}
-  - git:
-      repoURL: https://github.com/tharpooljha/argocd_demo
-      revision: HEAD
-      directories:
-      - path: deployments/*
+            path: 'deployment/*/{{cluster}}'
+          destination: {}
+
   template:
     metadata:
-      name: '{{path.basename}}'
-      namespace: argocd
+      name: '{{cluster}}-guestbook'
     spec:
-      project: services # If something is an app and not a service, we need another entry here.
+      project: "default"
       source:
         repoURL: https://github.com/tharpooljha/argocd_demo
         targetRevision: HEAD
-        path: '{{path}}'
+        # This 'default' value is not used: it is is replaced by the generator's template path, above
+        path: deployments/*
       destination:
-        server: https://kubernetes.default.svc
-        # this doesn't work well when istio-addons should be on istio-system. This template seems to override.
+        server: '{{url}}'
+        namespace: '{{path.basename}}'
