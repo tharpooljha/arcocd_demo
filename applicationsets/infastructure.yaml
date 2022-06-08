@@ -20,7 +20,7 @@ spec:
             revision: HEAD
             repoURL: https://github.com/tharpooljha/argocd_demo
             # New path value is generated here:
-            path: deployments/*/dev
+            path: 'deployments/*/{{cluster}}'
           destination: {}
 
   template:
@@ -32,7 +32,7 @@ spec:
         repoURL: https://github.com/tharpooljha/argocd_demo
         targetRevision: HEAD
         # This 'default' value is not used: it is is replaced by the generator's template path, above
-        path: 'deployment/*'
+        path: 'deployment/default'
       destination:
         server: '{{url}}'
         namespace: '{{path.basename}}'
