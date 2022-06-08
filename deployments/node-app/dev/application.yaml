@@ -4,7 +4,7 @@ metadata:
   name: node-app-dev
   namespace: argocd
 spec:
-  project: services
+  project: deployment
 
   source:
     repoURL: https://github.com/tharpooljha/argocd_demo
