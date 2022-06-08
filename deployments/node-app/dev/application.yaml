@@ -1,10 +1,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: node-app-argo-application
+  name: node-app-dev
   namespace: argocd
 spec:
-  project: default
+  project: services
 
   source:
     repoURL: https://github.com/tharpooljha/argocd_demo
