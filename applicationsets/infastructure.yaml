@@ -32,7 +32,7 @@ spec:
         repoURL: https://github.com/tharpooljha/argocd_demo
         targetRevision: HEAD
         # This 'default' value is not used: it is is replaced by the generator's template path, above
-        path: 'deployment/default'
+        path: 'deployment/default/{{cluster}}'
       destination:
         server: '{{url}}'
         namespace: '{{path.basename}}'
