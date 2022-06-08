@@ -8,7 +8,7 @@ spec:
     elements:
       - cluster: dev
         url: https://kubernetes.default.svc
-    template:
+  template:
       metadata: {}
       spec:
         project: "development"
