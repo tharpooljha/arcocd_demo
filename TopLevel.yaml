@@ -13,7 +13,7 @@ spec:
   source:
     repoURL: https://github.com/tharpooljha/argocd_demo
     targetRevision: HEAD
-    path: vcluster_argocd_dev-xperience-aks-cluster/*'
+    path: deployments/*'
   destination:
     server: '{{url}}'
     namespace: '{{path.basename}}'
