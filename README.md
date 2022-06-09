@@ -98,3 +98,21 @@ By default, the Helm release name is equal to the Application name to which it b
 - [Argo Rollout Examples](https://github.com/argoproj/argo-rollouts/tree/master/examples)
 - [Microsoft Gitops](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks?WT.mc_id=containers-52942-jessde)
 - [OpenSource.com automating ArgoCD with apps of apps pattern](https://opensource.com/article/21/7/automating-argo-cd)
+
+
+## Setting up Virtual Clusters
+Vclusters allows you to create virtual clusters inside of your clusters. 
+
+### Requirements
+- Helm
+- Argocd CLI
+- vcluster CLI
+
+## To create a new virtual cluster
+- vcluster create vc-argocd -n argocd --expose
+- vcluster connect vc-argocd --namespace argocd --update-current
+- kubectl get namespaces --context vcluster_argocd_vc-argocd
+- argocd cluster add vcluster_argocd_vc-argocd
+- argocd cluster list
+-argocd app create guestbook --repo https://github.com/argoproj/argocd-example-apps.git --path guestbook --dest-name vcluster_argocd_vc-argocd --dest-namespace default
+- kubectl get all
