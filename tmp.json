@@ -1,0 +1,21 @@
+{
+    "apiVersion": "v1",
+    "kind": "Namespace",
+    "metadata": {
+        "annotations": {
+            "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Namespace\",\"metadata\":{\"annotations\":{},\"creationTimestamp\":\"2022-05-04T17:43:05Z\",\"labels\":{\"kubernetes.io/metadata.name\":\"istio-system\",\"name\":\"istio-system\"},\"managedFields\":[{\"apiVersion\":\"v1\",\"fieldsType\":\"FieldsV1\",\"fieldsV1\":{\"f:metadata\":{\"f:annotations\":{\".\":{},\"f:kubectl.kubernetes.io/last-applied-configuration\":{}},\"f:labels\":{\".\":{},\"f:app.kubernetes.io/instance\":{},\"f:kubernetes.io/metadata.name\":{},\"f:name\":{}}}},\"manager\":\"argocd-application-controller\",\"operation\":\"Update\",\"time\":\"2022-06-06T19:29:22Z\"}],\"name\":\"istio-system\",\"resourceVersion\":\"16442208\",\"uid\":\"6620c81f-eb7c-48ea-b31b-d7e5bee69808\"},\"spec\":{\"finalizers\":[\"kubernetes\"]},\"status\":{\"phase\":\"Active\"}}\n"
+        },
+        "creationTimestamp": "2022-05-04T17:43:05Z",
+        "labels": {
+            "kubernetes.io/metadata.name": "istio-system",
+            "name": "istio-system"
+        },
+        "name": "istio-system",
+        "resourceVersion": "16454923",
+        "uid": "6620c81f-eb7c-48ea-b31b-d7e5bee69808"
+    },
+    "spec": {},
+    "status": {
+        "phase": "Active"
+    }
+}
