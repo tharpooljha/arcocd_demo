@@ -4,4 +4,4 @@ metadata:
   name: development
   labels:
     name: development
-    istio.io/rev: canary
+#    istio.io/rev: canary

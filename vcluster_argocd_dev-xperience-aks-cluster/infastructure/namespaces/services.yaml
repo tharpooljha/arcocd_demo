@@ -4,4 +4,4 @@ metadata:
   name: services
   labels:
     name: services
-    istio.io/rev: canary
+#    istio.io/rev: canary

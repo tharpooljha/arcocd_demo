@@ -5,4 +5,4 @@ metadata:
   labels:
     name: test
 #    istio-injection: enabled
-    istio.io/rev: canary
+ #   istio.io/rev: canary
