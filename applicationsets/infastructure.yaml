@@ -20,7 +20,7 @@ spec:
             revision: HEAD
             repoURL: https://github.com/tharpooljha/argocd_demo
             # New path value is generated here:
-            path: 'deployments/*/{{cluster}}'
+            path: 'deployments/*'
           destination: {}
 
   template:
