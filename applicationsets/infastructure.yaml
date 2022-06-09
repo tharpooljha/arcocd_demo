@@ -4,18 +4,34 @@ metadata:
   name: cluster-addons
 spec:
   generators:
-  - git:
-      repoURL: https://github.com/tharpooljha/argocd_demo
-      revision: HEAD
-      directories:
-      - path: '{{cluster}}/infastructure/{{environment}}'
+  - list:
+      elements:
+        - cluster: vcluster_argocd_dev-xperience-aks-cluster
+          url: https://20.94.165.217
+          values: 
+            environment: dev
+
+      template:
+        metadata: {}
+        spec:
+          project: "default"
+          source:
+            revision: HEAD
+            repoURL: https://github.com/tharpooljha/argocd_demo
+            # New path value is generated here:
+            path: '{{cluster}}/infastructure/*'
+          destination: {}
+
   template:
     metadata:
       name: '{{cluster}}-{{path.basename}}'
     spec:
-      project: default
+      project: "services"
       source:
         repoURL: https://github.com/tharpooljha/argocd_demo
         targetRevision: HEAD
-        path: '{{path}}'
-      destination: {}
+        # This 'default' value is not used: it is is replaced by the generator's template path, above
+        path: '{{cluster}}/infastructure/*'
+      destination:
+        server: '{{url}}'
+        namespace: '{{path.basename}}'
