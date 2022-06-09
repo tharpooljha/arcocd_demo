@@ -8,8 +8,8 @@ spec:
       elements:
         - cluster: vcluster_argocd_dev-xperience-aks-cluster
           url: https://20.94.165.217
-        - name: environment
-          value: dev
+          values: 
+            environment: dev
 
       template:
         metadata: {}
@@ -19,7 +19,7 @@ spec:
             revision: HEAD
             repoURL: https://github.com/tharpooljha/argocd_demo
             # New path value is generated here:
-            path: '{{cluster}}/infastructure/*'
+            path: '{{cluster}}/infastructure/{{environment}}'
           directory:
             recursive: true
           destination: {}
@@ -33,7 +33,7 @@ spec:
         repoURL: https://github.com/tharpooljha/argocd_demo
         targetRevision: HEAD
         # This 'default' value is not used: it is is replaced by the generator's template path, above
-        path: '{{cluster}}/*'
+        path: '{{cluster}}/infastructure/{{environment}}'
       destination:
         server: '{{url}}'
         namespace: '{{path.basename}}'
