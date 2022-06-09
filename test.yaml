@@ -1,0 +1,51 @@
+# This example demonstrates the combining of the git generator with a list generator
+# The expected output would be an application per git directory and a list entry (application_count = git directory * list entries)
+#
+#
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: list-git
+spec:
+  generators:
+  - matrix:
+      generators:
+      - git:
+          repoURL: https://github.com/tharpooljha/argocd_demo
+          revision: HEAD
+          directories:
+          - path: vcluster_argocd_dev-xperience-aks-cluster/*
+      - list:
+          elements:
+          - cluster: vcluster_argocd_dev-xperience-aks-cluster
+            url: https://20.94.165.217
+            values:
+              project: dev
+          - cluster: vcluster_argocd_vc-argocd
+            url: https://20.118.117.30
+            values:
+              project: prod
+          - cluster: in-cluster
+            url: https://kubernetes.default.svc
+            values:
+              project: qa
+  template:
+    metadata:
+      name: '{{path.basename}}-{{cluster}}'
+    spec:
+      project: '{{values.project}}'
+      source:
+        repoURL: https://github.com/tharpooljha/argocd_demo
+        targetRevision: HEAD
+        path: '{{path}}'
+        directory:
+          recurse: true
+      destination:
+        server: '{{url}}'
+        namespace: '{{path.basename}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
