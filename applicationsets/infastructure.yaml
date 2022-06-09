@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: infastructure-appset
+  name: ApplicationSet
 spec:
   generators:
   - list:
@@ -20,7 +20,7 @@ spec:
             revision: HEAD
             repoURL: https://github.com/tharpooljha/argocd_demo
             # New path value is generated here:
-            path: 'deployments/*'
+            path: 'deployment/*/{{cluster}}'
           destination: {}
 
   template:
@@ -35,4 +35,4 @@ spec:
         path: 'deployment/*/{{cluster}}'
       destination:
         server: '{{url}}'
-        namespace: '{{path.basename}}'
+        namespace: '{{cluster}}'
