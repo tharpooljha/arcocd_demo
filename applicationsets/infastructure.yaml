@@ -19,7 +19,9 @@ spec:
             revision: HEAD
             repoURL: https://github.com/tharpooljha/argocd_demo
             # New path value is generated here:
-            path: '{{cluster}}/*'
+            path: '{{cluster}}/infastructure/*'
+            directory:
+              recursive: true
           destination: {}
 
   template:

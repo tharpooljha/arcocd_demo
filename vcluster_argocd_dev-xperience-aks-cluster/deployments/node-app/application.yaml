@@ -11,7 +11,7 @@ spec:
   source:
     repoURL: https://github.com/tharpooljha/argocd_demo
     targetRevision: HEAD
-    path: deployment/node-app/dev
+    path: deployment/node-app
     plugin:
       name: argocd-vault-plugin
   destination: 
