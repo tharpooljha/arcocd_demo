@@ -41,7 +41,7 @@ spec:
         directory:
           recurse: true
       destination:
-        server: '{{url}}'
+        server: '{{values.url}}'
         namespace: '{{path.basename}}'
       syncPolicy:
         automated:
