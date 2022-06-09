@@ -15,7 +15,7 @@ spec:
       template:
         metadata: {}
         spec:
-          project: "services"
+          project: "default"
           source:
             revision: HEAD
             repoURL: https://github.com/tharpooljha/argocd_demo
