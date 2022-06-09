@@ -1,39 +1,21 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: ApplicationSet
+  name: cluster-addons
 spec:
   generators:
-  - list:
-      elements:
-        - cluster: vcluster_argocd_dev-xperience-aks-cluster
-          url: https://20.94.165.217
-          values: 
-            environment: dev
-
-      template:
-        metadata: {}
-        spec:
-          project: "default"
-          source:
-            revision: HEAD
-            repoURL: https://github.com/tharpooljha/argocd_demo
-            # New path value is generated here:
-            path: '{{cluster}}/infastructure/{{environment}}'
-          directory:
-            recursive: true
-          destination: {}
-
+  - git:
+      repoURL: https://github.com/tharpooljha/argocd_demo
+      revision: HEAD
+      directories:
+      - path: '{{cluster}}/infastructure/{{environment}}'
   template:
     metadata:
       name: '{{cluster}}-{{path.basename}}'
     spec:
-      project: "services"
+      project: default
       source:
         repoURL: https://github.com/tharpooljha/argocd_demo
         targetRevision: HEAD
-        # This 'default' value is not used: it is is replaced by the generator's template path, above
-        path: '{{cluster}}/infastructure/{{environment}}'
-      destination:
-        server: '{{url}}'
-        namespace: '{{path.basename}}'
+        path: '{{path}}'
+      destination: {}
