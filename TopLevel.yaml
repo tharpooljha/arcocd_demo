@@ -15,7 +15,7 @@ spec:
     targetRevision: HEAD
     path: applicationsets/*
   destination:
-    server: *
+    server: '*'
     namespace: argocd
   syncPolicy:
     automated: {}

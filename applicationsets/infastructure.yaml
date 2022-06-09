@@ -22,20 +22,28 @@ spec:
                 - list:
                     elements:
                       - cluster: vcluster_argocd_dev-xperience-aks-cluster
-                        url: https://kubernetes.default.svc
+                        url: https://20.94.165.217
                         values:
                           project: default
                       - cluster: vcluster_argocd_vc-argocd
+                        url: https://20.118.117.30
+                        values:
+                          project: default
+                      - cluster: in-cluster
                         url: https://kubernetes.default.svc
                         values:
                           project: default
                 - list:
                     elements:
                       - cluster: vcluster_argocd_dev-xperience-aks-cluster
-                        url: https://kubernetes.default.svc
+                        url: https://20.94.165.217
                         values:
                           project: default
                       - cluster: vcluster_argocd_vc-argocd
+                        url: https://20.118.117.30
+                        values:
+                          project: default
+                      - cluster: in-cluster
                         url: https://kubernetes.default.svc
                         values:
                           project: default
