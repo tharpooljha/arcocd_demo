@@ -1,21 +1,193 @@
 {
     "apiVersion": "v1",
-    "kind": "Namespace",
+    "items": [
+        {
+            "apiVersion": "v1",
+            "kind": "Namespace",
+            "metadata": {
+                "annotations": {
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Namespace\",\"metadata\":{\"annotations\":{},\"name\":\"argocd\"}}\n"
+                },
+                "creationTimestamp": "2022-05-25T15:28:13Z",
+                "labels": {
+                    "istio-injection": "enabled",
+                    "kubernetes.io/metadata.name": "argocd"
+                },
+                "name": "argocd",
+                "resourceVersion": "13660140",
+                "uid": "f17019a6-a8a1-4474-82da-ec36ac65c3a5"
+            },
+            "spec": {
+                "finalizers": [
+                    "kubernetes"
+                ]
+            },
+            "status": {
+                "phase": "Active"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Namespace",
+            "metadata": {
+                "annotations": {
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Namespace\",\"metadata\":{\"annotations\":{},\"labels\":{\"name\":\"argocd\"},\"name\":\"default\"}}\n"
+                },
+                "creationTimestamp": "2022-04-18T21:37:00Z",
+                "labels": {
+                    "istio-injection": "enabled",
+                    "istio.io/rev": "1-13-3",
+                    "kubernetes.io/metadata.name": "default",
+                    "name": "argocd"
+                },
+                "name": "default",
+                "resourceVersion": "11664085",
+                "uid": "66afdfe0-4acd-4cb8-ab7e-b449b759b9f1"
+            },
+            "spec": {
+                "finalizers": [
+                    "kubernetes"
+                ]
+            },
+            "status": {
+                "phase": "Active"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Namespace",
+            "metadata": {
+                "creationTimestamp": "2022-04-18T21:36:57Z",
+                "labels": {
+                    "kubernetes.io/metadata.name": "kube-node-lease"
+                },
+                "name": "kube-node-lease",
+                "resourceVersion": "15",
+                "uid": "479a38e8-2939-424e-8eab-2da2cb096fc9"
+            },
+            "spec": {
+                "finalizers": [
+                    "kubernetes"
+                ]
+            },
+            "status": {
+                "phase": "Active"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Namespace",
+            "metadata": {
+                "creationTimestamp": "2022-04-18T21:36:57Z",
+                "labels": {
+                    "kubernetes.io/metadata.name": "kube-public"
+                },
+                "name": "kube-public",
+                "resourceVersion": "12",
+                "uid": "5df331fe-3247-448d-b684-edb2e9c1c09a"
+            },
+            "spec": {
+                "finalizers": [
+                    "kubernetes"
+                ]
+            },
+            "status": {
+                "phase": "Active"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Namespace",
+            "metadata": {
+                "annotations": {
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Namespace\",\"metadata\":{\"annotations\":{},\"labels\":{\"addonmanager.kubernetes.io/mode\":\"Reconcile\",\"control-plane\":\"true\",\"kubernetes.io/cluster-service\":\"true\"},\"name\":\"kube-system\"}}\n"
+                },
+                "creationTimestamp": "2022-04-18T21:36:57Z",
+                "labels": {
+                    "addonmanager.kubernetes.io/mode": "Reconcile",
+                    "control-plane": "true",
+                    "kubernetes.io/cluster-service": "true",
+                    "kubernetes.io/metadata.name": "kube-system"
+                },
+                "name": "kube-system",
+                "resourceVersion": "499",
+                "uid": "05081460-e696-4fa6-b618-a3a2c17176c6"
+            },
+            "spec": {
+                "finalizers": [
+                    "kubernetes"
+                ]
+            },
+            "status": {
+                "phase": "Active"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Namespace",
+            "metadata": {
+                "creationTimestamp": "2022-06-06T17:25:28Z",
+                "deletionTimestamp": "2022-06-08T23:18:29Z",
+                "labels": {
+                    "app.kubernetes.io/instance": "namespaces",
+                    "istio.io/rev": "canary",
+                    "kubernetes.io/metadata.name": "test",
+                    "name": "test"
+                },
+                "name": "test",
+                "resourceVersion": "17973443",
+                "uid": "40a16f8b-2bbf-4c7f-ba75-7a17be7837b0"
+            },
+            "spec": {
+                "finalizers": [
+                  
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2022-06-09T05:09:27Z",
+                        "message": "All resources successfully discovered",
+                        "reason": "ResourcesDiscovered",
+                        "status": "False",
+                        "type": "NamespaceDeletionDiscoveryFailure"
+                    },
+                    {
+                        "lastTransitionTime": "2022-06-08T23:18:35Z",
+                        "message": "All legacy kube types successfully parsed",
+                        "reason": "ParsedGroupVersions",
+                        "status": "False",
+                        "type": "NamespaceDeletionGroupVersionParsingFailure"
+                    },
+                    {
+                        "lastTransitionTime": "2022-06-09T01:10:48Z",
+                        "message": "All content successfully deleted, may be waiting on finalization",
+                        "reason": "ContentDeleted",
+                        "status": "False",
+                        "type": "NamespaceDeletionContentFailure"
+                    },
+                    {
+                        "lastTransitionTime": "2022-06-08T23:18:35Z",
+                        "message": "Some resources are remaining: appprojects.argoproj.io has 1 resource instances",
+                        "reason": "SomeResourcesRemain",
+                        "status": "True",
+                        "type": "NamespaceContentRemaining"
+                    },
+                    {
+                        "lastTransitionTime": "2022-06-08T23:18:35Z",
+                        "message": "Some content in the namespace has finalizers remaining: resources-finalizer.argocd.argoproj.io in 1 resource instances",
+                        "reason": "SomeFinalizersRemain",
+                        "status": "True",
+                        "type": "NamespaceFinalizersRemaining"
+                    }
+                ],
+                "phase": "Terminating"
+            }
+        }
+    ],
+    "kind": "List",
     "metadata": {
-        "annotations": {
-            "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Namespace\",\"metadata\":{\"annotations\":{},\"creationTimestamp\":\"2022-05-04T17:43:05Z\",\"labels\":{\"kubernetes.io/metadata.name\":\"istio-system\",\"name\":\"istio-system\"},\"managedFields\":[{\"apiVersion\":\"v1\",\"fieldsType\":\"FieldsV1\",\"fieldsV1\":{\"f:metadata\":{\"f:annotations\":{\".\":{},\"f:kubectl.kubernetes.io/last-applied-configuration\":{}},\"f:labels\":{\".\":{},\"f:app.kubernetes.io/instance\":{},\"f:kubernetes.io/metadata.name\":{},\"f:name\":{}}}},\"manager\":\"argocd-application-controller\",\"operation\":\"Update\",\"time\":\"2022-06-06T19:29:22Z\"}],\"name\":\"istio-system\",\"resourceVersion\":\"16442208\",\"uid\":\"6620c81f-eb7c-48ea-b31b-d7e5bee69808\"},\"spec\":{\"finalizers\":[\"kubernetes\"]},\"status\":{\"phase\":\"Active\"}}\n"
-        },
-        "creationTimestamp": "2022-05-04T17:43:05Z",
-        "labels": {
-            "kubernetes.io/metadata.name": "istio-system",
-            "name": "istio-system"
-        },
-        "name": "istio-system",
-        "resourceVersion": "16454923",
-        "uid": "6620c81f-eb7c-48ea-b31b-d7e5bee69808"
-    },
-    "spec": {},
-    "status": {
-        "phase": "Active"
+        "resourceVersion": "",
+        "selfLink": ""
     }
 }
