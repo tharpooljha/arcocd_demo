@@ -6,7 +6,7 @@ metadata:
   namespace: argocd
 spec:
   generators:
-  - git:
+  - list:
       elements:
       # v0.2.0+ form - does not require cluster/URL keys (but are still supported)
       - cluster: vcluster_argocd_dev-xperience-aks-cluster
@@ -22,7 +22,7 @@ spec:
         gitRepo: https://github.com/tharpooljha/argocd_demo
         appPath: deployments/applicationsets
         appBranch: main
-       project: dev
+        project: dev
         directory:
           recurse: true      
       - cluster: in-cluster
@@ -45,7 +45,7 @@ spec:
       source:
         repoURL: '{{gitRepo}}'
         targetRevision: '{{appBranch}}'
-        path: '{{path.basename}}'
+        path: '{{appPath}}'
       destination:
         server: '{{url}}'
         namespace: '{{project}}-{{cluster}}'
