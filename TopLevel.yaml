@@ -49,3 +49,9 @@ spec:
       destination:
         server: '{{url}}'
         namespace: '{{project}}'
+      retry:
+        limit: -1
+        backoff:
+          duration: 5s
+          factor: 2
+          maxDuration: 2m
