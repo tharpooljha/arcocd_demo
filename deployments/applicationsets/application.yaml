@@ -14,21 +14,21 @@ spec:
         overlay: test
         url: https://20.94.165.217
         gitRepo: https://github.com/tharpooljha/argocd_demo
-        appPath: deployments/applicationsets/*
+        appPath: deployments/*
         appBranch: main
       - cluster: vcluster_argocd_vc-argocd
         project: dev
         overlay: test
         url: https://20.118.117.30
         gitRepo: https://github.com/tharpooljha/argocd_demo
-        appPath: deployments/applicationsets/*
+        appPath: deployments/*
         appBranch: main
       - cluster: in-cluster
         project: dev
         overlay: test
         url: https://kubernetes.default.svc
         gitRepo: https://github.com/tharpooljha/argocd_demo
-        appPath: deployments/applicationsets/*
+        appPath: deployments/*
         appBranch: main
   template:
     metadata:
