@@ -13,9 +13,9 @@ spec:
   source:
     repoURL: https://github.com/tharpooljha/argocd_demo
     targetRevision: HEAD
-    path: deployments/*'
+    path: deployments/applicationsets/*'
   destination:
-    server: '{{url}}'
+    server: '{{path}}'
     namespace: '{{path.basename}}'
   syncPolicy:
     automated:
