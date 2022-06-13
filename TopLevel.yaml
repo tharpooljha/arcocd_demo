@@ -12,7 +12,7 @@ spec:
       - cluster: vcluster_argocd_dev-xperience-aks-cluster
         url: https://20.94.165.217
         gitRepo: https://github.com/tharpooljha/argocd_demo
-        appPath: deployments/*
+        appPath: deployments
         appBranch: main
         project: dev
         directory:
@@ -20,15 +20,15 @@ spec:
       - cluster: vcluster_argocd_vc-argocd
         url: https://20.118.117.30
         gitRepo: https://github.com/tharpooljha/argocd_demo
-        appPath: deployments/*
+        appPath: deployments
         appBranch: main
-       project: dev
+        project: dev
         directory:
           recurse: true      
       - cluster: in-cluster
         url: https://kubernetes.default.svc
         gitRepo: https://github.com/tharpooljha/argocd_demo
-        appPath: deployments/*
+        appPath: deployments
         appBranch: main
         project: dev
         directory:
