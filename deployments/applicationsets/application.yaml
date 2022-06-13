@@ -46,4 +46,4 @@ spec:
           recurse: true
       destination:
         server: '{{url}}'
-        namespace: '{{project}}-{{cluster}}'
+        namespace: '{{project}}'
