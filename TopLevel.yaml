@@ -13,20 +13,20 @@ spec:
       - cluster: dev-xperience-aks-cluster
         url: https://20.94.165.217
         gitRepo: https://github.com/tharpooljha/argocd_demo
-        appPath: deployments/applicationsets
+        appPath: deployments
         appBranch: HEAD
         project: dev 
       - cluster: vcluster-argocd
         url: https://20.118.117.30
         gitRepo: https://github.com/tharpooljha/argocd_demo
-        appPath: deployments/applicationsets
+        appPath: deployments
         appBranch: HEAD
         project: dev
   
       - cluster: in-cluster
         url: https://kubernetes.default.svc
         gitRepo: https://github.com/tharpooljha/argocd_demo
-        appPath: deployments/applicationsets
+        appPath: deployments
         appBranch: HEAD
         project: dev
  
@@ -39,6 +39,7 @@ spec:
         automated:
           prune: true
           selfHeal: true
+          allowEmpty: true
       source:
         repoURL: '{{gitRepo}}'
         targetRevision: '{{appBranch}}'
