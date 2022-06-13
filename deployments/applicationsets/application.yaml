@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: cluster
+  name: infrastructure-appsets
   #namespace: openshift-gitops
   namespace: argocd
 spec:
@@ -10,31 +10,31 @@ spec:
       elements:
       # v0.2.0+ form - does not require cluster/URL keys (but are still supported)
       - cluster: vcluster_argocd_dev-xperience-aks-cluster
-        project: dev
-        overlay: test
         url: https://20.94.165.217
         gitRepo: https://github.com/tharpooljha/argocd_demo
         appPath: deployments/*
         appBranch: main
+        directory:
+          recurse: true        
       - cluster: vcluster_argocd_vc-argocd
-        project: dev
-        overlay: test
         url: https://20.118.117.30
         gitRepo: https://github.com/tharpooljha/argocd_demo
         appPath: deployments/*
         appBranch: main
+        directory:
+          recurse: true      
       - cluster: in-cluster
-        project: dev
-        overlay: test
         url: https://kubernetes.default.svc
         gitRepo: https://github.com/tharpooljha/argocd_demo
-        appPath: deployments/*
+        appPath: deployments
         appBranch: main
+        directory:
+          recurse: true
   template:
     metadata:
       name: '{{cluster}}'
     spec:
-      project: '{{project}}'
+      project: default
       syncPolicy:
         automated:
           prune: true
@@ -45,4 +45,4 @@ spec:
         path: '{{appPath}}'
       destination:
         server: '{{url}}'
-        namespace: '{{overlay}}'
+        namespace: '{{project}}-{{overlay}}'
