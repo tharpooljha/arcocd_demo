@@ -44,7 +44,7 @@ spec:
         targetRevision: '{{appBranch}}'
         path: '{{appPath}}'
         directory:
-          recurse: '{{recurse}}'
+          recurse: true
       destination:
         server: '{{url}}'
         namespace: '{{project}}-{{cluster}}'
