@@ -28,7 +28,7 @@ spec:
       - cluster: in-cluster
         url: https://kubernetes.default.svc
         gitRepo: https://github.com/tharpooljha/argocd_demo
-        appPath: deployments
+        appPath: deployments/*
         appBranch: main
         project: dev
         directory:
