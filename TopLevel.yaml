@@ -1,25 +1,48 @@
 apiVersion: argoproj.io/v1alpha1
-kind: Application
+kind: ApplicationSet
 metadata:
-  name: infastructure-appsets
-  # You'll usually want to add your resources to the argocd namespace.
+  name: bgd
+  #namespace: openshift-gitops
   namespace: argocd
-  # Add a this finalizer ONLY if you want these to cascade delete.
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
 spec:
-  # The project the application belongs to.
-  project: services
-  source:
-    repoURL: https://github.com/tharpooljha/argocd_demo
-    targetRevision: HEAD
-    path: deployments/applicationsets/*'
-  destination:
-    server: '{{path}}'
-    namespace: '{{path.basename}}'
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-     - CreateNamespace=true
+  generators:
+  - list:
+      elements:
+      # v0.2.0+ form - does not require cluster/URL keys (but are still supported)
+      - cluster: vcluster_argocd_dev-xperience-aks-cluster
+        url: https://20.94.165.217
+        gitRepo: https://github.com/tharpooljha/argocd_demo
+        appPath: deployments/*
+        appBranch: main
+        directory:
+          recurse: true        
+      - cluster: vcluster_argocd_vc-argocd
+        url: https://20.118.117.30
+        gitRepo: https://github.com/tharpooljha/argocd_demo
+        appPath: deployments/*
+        appBranch: main
+        directory:
+          recurse: true      
+      - cluster: in-cluster
+        url: https://kubernetes.default.svc
+        gitRepo: https://github.com/tharpooljha/argocd_demo
+        appPath: deployments
+        appBranch: main
+        directory:
+          recurse: true
+  template:
+    metadata:
+      name: '{{cluster}}'
+    spec:
+      project: default
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+      source:
+        repoURL: '{{gitRepo}}'
+        targetRevision: '{{appBranch}}'
+        path: '{{appPath}}'
+      destination:
+        server: '{{url}}'
+        namespace: '{{project}}-{{overlay}}'
