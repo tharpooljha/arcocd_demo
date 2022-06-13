@@ -14,22 +14,21 @@ spec:
         gitRepo: https://github.com/tharpooljha/argocd_demo
         appPath: deployments
         appBranch: HEAD
-        project: dev
-        recurse: true       
+        project: dev 
       - cluster: vcluster_argocd_vc-argocd
         url: https://20.118.117.30
         gitRepo: https://github.com/tharpooljha/argocd_demo
         appPath: deployments
         appBranch: HEAD
         project: dev
-        recurse: true      
+  
       - cluster: in-cluster
         url: https://kubernetes.default.svc
         gitRepo: https://github.com/tharpooljha/argocd_demo
         appPath: deployments
         appBranch: HEAD
         project: dev
-        recurse: true    
+ 
   template:
     metadata:
       name: '{{cluster}}'
@@ -44,7 +43,7 @@ spec:
         targetRevision: '{{appBranch}}'
         path: '{{appPath}}'
         directory:
-          recurse: '{{recurse}}'
+          recurse: true
       destination:
         server: '{{url}}'
         namespace: '{{project}}-{{cluster}}'
