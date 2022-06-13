@@ -9,13 +9,13 @@ spec:
   - list:
       elements:
       # v0.2.0+ form - does not require cluster/URL keys (but are still supported)
-      - cluster: vcluster_argocd_dev-xperience-aks-cluster
+      - cluster: dev-xperience-aks-cluster
         url: https://20.94.165.217
         gitRepo: https://github.com/tharpooljha/argocd_demo
         appPath: deployments
         appBranch: HEAD
         project: dev 
-      - cluster: vcluster_argocd_vc-argocd
+      - cluster: vcluster-argocd
         url: https://20.118.117.30
         gitRepo: https://github.com/tharpooljha/argocd_demo
         appPath: deployments
@@ -46,4 +46,4 @@ spec:
           recurse: true
       destination:
         server: '{{url}}'
-        namespace: '{{project}}'
+        namespace: '{{project}}-{{cluster}}'
