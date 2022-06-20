@@ -1,0 +1,29 @@
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: node-app-dev
+#   namespace: argocd
+#   finalizers:
+#    - resources-finalizer.argocd.argoproj.io
+# spec:
+#   project: deployment
+
+#   source:
+#     repoURL: https://github.com/tharpooljha/argocd_demo
+#     targetRevision: HEAD
+#     path: deployment/node-app
+#     plugin:
+#       name: argocd-vault-plugin
+#   destination: 
+#     server: https://kubernetes.default.svc
+#     namespace: development
+
+#   syncPolicy:
+  
+#     syncOptions:
+#     - CreateNamespace=true
+
+#     automated:
+#       selfHeal: true
+#       prune: true
+#       allowEmpty: true
