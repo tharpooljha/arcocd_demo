@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: infrastructure-appsets
+  name: dev-guestbook-dev-xperience-aks-cluster-appset
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -12,29 +12,11 @@ spec:
       # v0.2.0+ form - does not require cluster/URL keys (but are still supported)
       - cluster: dev-xperience-aks-cluster
         url: https://20.94.165.217
-        gitRepo: https://github.com/tharpooljha/argocd_demo
+        gitRepo: https://github.com/argoproj/argocd-example-apps.git
         appPath: deployments
         appBranch: HEAD
         project: dev 
-      - cluster: vcluster-argocd
-        url: https://20.118.117.30
-        gitRepo: https://github.com/tharpooljha/argocd_demo
-        appPath: deployments
-        appBranch: HEAD
-        project: dev
-  
-      - cluster: in-cluster
-        url: https://kubernetes.default.svc
-        gitRepo: https://github.com/tharpooljha/argocd_demo
-        appPath: deployments
-        appBranch: HEAD
-        project: dev
-      - cluster: in-cluster
-        url: https://kubernetes.default.svc
-        gitRepo: https://github.com/tharpooljha/argocd_demo
-        appPath: deployments/qa
-        appBranch: HEAD
-        project: qa
+
  
   template:
     metadata:
