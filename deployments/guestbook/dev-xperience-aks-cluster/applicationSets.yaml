@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: dev-guestbook-dev-xperience-aks-cluster-appset
+  name: guestbook-appset
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -13,14 +13,32 @@ spec:
       - cluster: dev-xperience-aks-cluster
         url: https://20.94.165.217
         gitRepo: https://github.com/argoproj/argocd-example-apps.git
-        appPath: deployments
+        appPath: guestbook
         appBranch: HEAD
-        project: dev 
+        project: dev
+        namespace: guestbook
+        product: guestbook
+      - cluster: dev-xperience-aks-cluster
+        url: https://20.94.165.217
+        gitRepo: https://github.com/argoproj/argocd-example-apps.git
+        appPath: guestbook
+        appBranch: HEAD
+        project: prod
+        namespace: guestbook
+        product: guestbook
+      - cluster: dev-xperience-aks-cluster
+        url: https://20.94.165.217
+        gitRepo: https://github.com/argoproj/argocd-example-apps.git
+        appPath: guestbook
+        appBranch: HEAD
+        project: qa
+        namespace: guestbook
+        product: guestbook
 
  
   template:
     metadata:
-      name: '{{cluster}}'
+      name: '{{cluster}}-{{product}}'
     spec:
       project: '{{project}}'
       syncPolicy:
@@ -30,7 +48,7 @@ spec:
       source:
         repoURL: '{{gitRepo}}'
         targetRevision: '{{appBranch}}'
-        path: '{{appPath}}'
+        path: '{{appPath}}/{{product}}/{{cluster}}/{{project}}'
         directory:
           recurse: true
       destination:

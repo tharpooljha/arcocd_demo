@@ -13,7 +13,7 @@ spec:
       - cluster: dev-xperience-aks-cluster
         url: https://20.94.165.217
         gitRepo: https://github.com/argoproj/argocd-example-apps.git
-        appPath: deployments
+        appPath: guestbook
         appBranch: HEAD
         project: prod 
 
