@@ -68,7 +68,7 @@ spec:
         project: dev
         namespace: argocd
         product: argocd
-       - cluster: in-cluster
+      - cluster: in-cluster
         url: https://kubernetes.default.svc
         gitRepo: https://github.com/tharpooljha/argocd_demo
         appPath: deployments
