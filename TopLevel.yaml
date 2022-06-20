@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: guestbook-appsets
+  name: argocd-appsets
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -18,7 +18,23 @@ spec:
         project: dev
         namespace: argocd
         product: argocd
-
+      - cluster: dev-xperience-aks-cluster
+        url: https://20.94.165.217
+        gitRepo: https://github.com/tharpooljha/argocd_demo
+        appPath: deployments
+        appBranch: HEAD
+        project: prod
+        namespace: argocd
+        product: argocd
+      - cluster: dev-xperience-aks-cluster
+        url: https://20.94.165.217
+        gitRepo: https://github.com/tharpooljha/argocd_demo
+        appPath: deployments
+        appBranch: HEAD
+        project: qa
+        namespace: argocd
+        product: argocd
+## Add argocd to dev/prod/qa in our vcluster-argocd
       - cluster: vcluster-argocd
         url: https://20.118.117.30
         gitRepo: https://github.com/tharpooljha/argocd_demo
@@ -27,7 +43,23 @@ spec:
         project: dev
         namespace: argocd
         product: argocd
-  
+      - cluster: vcluster-argocd
+        url: https://20.118.117.30
+        gitRepo: https://github.com/tharpooljha/argocd_demo
+        appPath: deployments
+        appBranch: HEAD
+        project: prod
+        namespace: argocd 
+
+      - cluster: vcluster-argocd
+        url: https://20.118.117.30
+        gitRepo: https://github.com/tharpooljha/argocd_demo
+        appPath: deployments
+        appBranch: HEAD
+        project: qa
+        namespace: argocd
+
+ # Add argocd to the in-clustere (managed by argocd)       
       - cluster: in-cluster
         url: https://kubernetes.default.svc
         gitRepo: https://github.com/tharpooljha/argocd_demo
@@ -36,7 +68,22 @@ spec:
         project: dev
         namespace: argocd
         product: argocd
- 
+       - cluster: in-cluster
+        url: https://kubernetes.default.svc
+        gitRepo: https://github.com/tharpooljha/argocd_demo
+        appPath: deployments
+        appBranch: HEAD
+        project: prod
+        namespace: argocd
+        product: argocd
+      - cluster: in-cluster
+        url: https://kubernetes.default.svc
+        gitRepo: https://github.com/tharpooljha/argocd_demo
+        appPath: deployments
+        appBranch: HEAD
+        project: qa
+        namespace: argocd
+        product: argocd
   template:
     metadata:
       name: '{{cluster}}-guestbook'
