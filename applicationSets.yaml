@@ -84,9 +84,10 @@ spec:
         project: qa
         namespace: argocd
         product: argocd
+
   template:
     metadata:
-      name: '{{cluster}}-guestbook'
+      name: '{{cluster}}-argocd'
     spec:
       project: '{{project}}'
       syncPolicy:
@@ -97,7 +98,7 @@ spec:
       source:
         repoURL: '{{gitRepo}}'
         targetRevision: '{{appBranch}}'
-        path: '{{appPath}}/{{product}}/{{cluster}}/{{project}}'
+        path: '{{appPath}}/*/{{cluster}}/{{project}}'
         directory:
           recurse: true
       destination:
