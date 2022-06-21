@@ -24,7 +24,7 @@ spec:
 
   template:
     metadata:
-      name: '{{cluster}}-argocd'
+      name: '{{project}}-{{cluster}}-argocd'
     spec:
       project: '{{project}}'
       syncPolicy:
