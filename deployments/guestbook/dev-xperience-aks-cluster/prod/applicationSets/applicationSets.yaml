@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: guestbook-appsets
+  name: prod-guestbook-dev-xperience-aks-cluster-appset
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
