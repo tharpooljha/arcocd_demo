@@ -15,8 +15,8 @@ spec:
 ## Add guestbook to dev/prod/qa in our vcluster-argocd
       - cluster: dev-xperience-aks-cluster
         url: https://20.94.165.217
-        gitRepo: https://github.com/tharpooljha/argocd_demo
-        appPath: deployments
+        gitRepo: https://github.com/argoproj/applicationset.git
+        appPath: examples/list-generator/guestbook/engineering-dev
         appBranch: HEAD
         project: dev
         namespace: guestbook
