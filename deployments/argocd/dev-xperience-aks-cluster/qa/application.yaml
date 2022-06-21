@@ -1,0 +1,6 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: qa-argocd
+  annotations:
+    link.argocd.argoproj.io/external-link: https://argo-cd.readthedocs.io/en/stable/
