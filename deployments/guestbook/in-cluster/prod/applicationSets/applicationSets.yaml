@@ -16,6 +16,8 @@ spec:
         appPath: guestbook
         appBranch: HEAD
         project: prod
+        namespace: guestbook
+        product: guestbook
  
   template:
     metadata:

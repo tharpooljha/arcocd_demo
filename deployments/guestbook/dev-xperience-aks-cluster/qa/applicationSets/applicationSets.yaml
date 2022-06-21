@@ -15,7 +15,9 @@ spec:
         gitRepo: https://github.com/argoproj/argocd-example-apps.git
         appPath: guestbook
         appBranch: HEAD
-        project: qa 
+        project: qa
+        namespace: guestbook
+        product: guestbook
 
  
   template:
