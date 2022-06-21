@@ -28,6 +28,7 @@ spec:
         automated:
           prune: true
           selfHeal: true
+          allowEmpty: true
       source:
         repoURL: '{{gitRepo}}'
         targetRevision: '{{appBranch}}'
