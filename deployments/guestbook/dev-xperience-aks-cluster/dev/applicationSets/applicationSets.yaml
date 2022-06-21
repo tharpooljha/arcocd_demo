@@ -38,7 +38,7 @@ spec:
       source:
         repoURL: '{{gitRepo}}'
         targetRevision: '{{appBranch}}'
-        path: '{{appPath}}/{{product}}/{{cluster}}/{{project}}'
+        path: '{{appPath}}'
         directory:
           recurse: true
       destination:
