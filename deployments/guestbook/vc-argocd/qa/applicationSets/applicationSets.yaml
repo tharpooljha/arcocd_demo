@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: prod-guestbook-vcluster-appset
+  name: qa-guestbook-vcluster-appset
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -10,12 +10,12 @@ spec:
   - list:
       elements:
       # v0.2.0+ form - does not require cluster/URL keys (but are still supported)
-      - cluster: vcluster-argocd
+      - cluster: vc-argocd
         url: https://20.118.117.30
         gitRepo: https://github.com/argoproj/argocd-example-apps.git
         appPath: guestbook
         appBranch: HEAD
-        project: prod
+        project: qa
         namespace: guestbook
         product: guestbook
 
