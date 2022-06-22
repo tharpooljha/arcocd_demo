@@ -3,9 +3,8 @@ kind: AppProject
 metadata:
   name: test
   namespace: test
-  # Finalizer that ensures that project is not deleted until it is not referenced by any application
-#  finalizers:
-#    - resources-finalizer.argocd.argoproj.io
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
 spec:
   description: test Apps
   # Allow manifests to deploy from any Git repos
