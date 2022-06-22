@@ -3,15 +3,13 @@ kind: ApplicationSet
 metadata:
   name: argocd-infrastructure-appsets
   namespace: argocd
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
 spec:
   generators:
   - list:
       elements:
       # v0.2.0+ form - does not require cluster/URL keys (but are still supported)
-      - cluster: dev-xperience-aks-cluster
-        url: https://20.94.165.217
+      - cluster: in-cluster
+        url: https://kubernetes.default.svc
         gitRepo: https://github.com/tharpooljha/argocd_demo
         appPath: deployments
         appBranch: HEAD
@@ -30,7 +28,7 @@ spec:
       source:
         repoURL: '{{gitRepo}}'
         targetRevision: '{{appBranch}}'
-        path: '{{appPath}}/{{product}}/{{cluster}}'
+        path: '{{appPath}}/{{product}}/{{project}}'
         directory:
          recurse: true
       destination:
