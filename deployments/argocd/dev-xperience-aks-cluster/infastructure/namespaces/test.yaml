@@ -1,8 +1,8 @@
-kind: Namespace
 apiVersion: v1
+kind: Namespace
 metadata:
   name: test
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
   labels:
-    name: test
-#    istio-injection: enabled
- #   istio.io/rev: canary
+    argocd.argoproj.io/managed-by: argocd
