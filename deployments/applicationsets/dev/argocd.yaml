@@ -22,7 +22,7 @@ spec:
 
   template:
     metadata:
-      name: ''
+      name: '{{product}}'
     spec:
       project: '{{project}}'
       source:
