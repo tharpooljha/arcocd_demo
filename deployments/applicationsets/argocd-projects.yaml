@@ -35,4 +35,4 @@ spec:
          recurse: true
       destination:
         server: '{{url}}'
-        namespace: default
+        namespace: argocd
