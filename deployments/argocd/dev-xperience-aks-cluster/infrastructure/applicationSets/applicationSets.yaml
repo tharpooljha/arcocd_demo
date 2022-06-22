@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: namespace-appsets
+  name: dev-argocd-dev-experience-aks-cluster-appsets
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -15,7 +15,7 @@ spec:
         gitRepo: https://github.com/tharpooljha/argocd_demo
         appPath: deployments
         appBranch: HEAD
-        project: argocd
+        project: infrastructure
         namespace: argocd
         product: argocd
 
@@ -24,15 +24,20 @@ spec:
 
   template:
     metadata:
-      name: ''
+      name: '{{project}}-{{cluster}}-{{product}}'
     spec:
-      project: default
+      project: '{{project}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+          allowEmpty: true
       source:
         repoURL: '{{gitRepo}}'
-        targetRevision: HEAD
-        path: '{{appPath}}/{{product}}/{{cluster}}'
+        targetRevision: '{{appBranch}}'
+        path: '{{appPath}}/{{product}}/{{cluster}}/{{project}}'
         directory:
-         recurse: true
+          recurse: true
       destination:
         server: '{{url}}'
-        namespace: default
+        namespace: '{{namespace}}'
