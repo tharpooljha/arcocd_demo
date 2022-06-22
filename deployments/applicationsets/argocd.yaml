@@ -24,16 +24,15 @@ spec:
 
   template:
     metadata:
-      name: '{{cluster}}'
+      name: ''
     spec:
-      project: "default"
+      project: default
       source:
         repoURL: '{{gitRepo}}'
         targetRevision: HEAD
-        # This 'default' value is not used: it is is replaced by the generator's template path, above
         path: '{{appPath}}/{{product}}/{{cluster}}'
         directory:
          recurse: true
       destination:
         server: '{{url}}'
-        namespace: '{{namespace}}'
+        namespace: default
