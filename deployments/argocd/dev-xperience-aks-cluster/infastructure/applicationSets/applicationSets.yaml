@@ -16,7 +16,7 @@ spec:
         appPath: deployments
         appBranch: HEAD
         project: infastructure
-        namespace: default
+        namespace: argocd
         product: argocd
 
 
