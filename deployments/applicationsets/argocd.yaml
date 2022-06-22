@@ -13,7 +13,7 @@ spec:
       - cluster: dev-xperience-aks-cluster
         url: https://20.94.165.217
         gitRepo: https://github.com/tharpooljha/argocd_demo
-        appPath: deployments
+        appPath: deployments/argocd
         appBranch: HEAD
         project: default
         namespace: argocd
@@ -28,10 +28,10 @@ spec:
     spec:
       project: "default"
       source:
-        repoURL: https://github.com/tharpooljha/argocd_demo
+        repoURL: '{{gitRepo}}'
         targetRevision: HEAD
         # This 'default' value is not used: it is is replaced by the generator's template path, above
-        path: 'deployments/argocd'
+        path: '{{appPath}}'
       destination:
         server: '{{url}}'
         namespace: '{{namespace}}'
