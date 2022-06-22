@@ -32,6 +32,8 @@ spec:
         targetRevision: HEAD
         # This 'default' value is not used: it is is replaced by the generator's template path, above
         path: '{{appPath}}/{{cluster}}'
+        directory:
+         recurse: true
       destination:
         server: '{{url}}'
         namespace: '{{namespace}}'
