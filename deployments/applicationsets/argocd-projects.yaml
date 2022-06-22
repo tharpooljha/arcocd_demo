@@ -24,7 +24,7 @@ spec:
 
   template:
     metadata:
-      name: ''
+      name: 'argocd-infastructure'
     spec:
       project: dev
       source:
