@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: namespace-dev-argocd-dev-experience-aks-cluster-appsets
+  name: namespace-appsets
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
