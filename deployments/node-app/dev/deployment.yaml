@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: node-app
-          image: ghcr.io/tharpooljha/node_app:v1.0.1-broken
+          image: ghcr.io/tharpooljha/node_app:v1.0.0-broken
           ports:
             - containerPort: 3000
 
