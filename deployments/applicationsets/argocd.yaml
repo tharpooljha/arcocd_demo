@@ -15,7 +15,7 @@ spec:
         gitRepo: https://github.com/tharpooljha/argocd_demo
         appPath: deployments
         appBranch: HEAD
-        project: infastructure
+        project: default
         namespace: argocd
         product: argocd
 
@@ -24,20 +24,14 @@ spec:
 
   template:
     metadata:
-      name: '{{project}}-{{cluster}}-{{product}}'
+      name: '{{cluster}}-{{path.basename}}'
     spec:
-      project: '{{project}}'
-      syncPolicy:
-        automated:
-          prune: true
-          selfHeal: true
-          allowEmpty: true
+      project: "default"
       source:
-        repoURL: '{{gitRepo}}'
-        targetRevision: '{{appBranch}}'
-        path: '{{appPath}}/{{product}}/{{cluster}}/{{project}}'
-        directory:
-          recurse: true
+        repoURL: https://github.com/tharpooljha/argocd_demo
+        targetRevision: HEAD
+        # This 'default' value is not used: it is is replaced by the generator's template path, above
+        path: 'deployments/*'
       destination:
         server: '{{url}}'
-        namespace: '{{namespace}}'
+        namespace: '{{path.basename}}'

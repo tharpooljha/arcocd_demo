@@ -15,7 +15,7 @@ spec:
         gitRepo: https://github.com/tharpooljha/argocd_demo
         appPath: deployments
         appBranch: HEAD
-        project: infastructure
+        project: default
         namespace: argocd
         product: argocd
 
