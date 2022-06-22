@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: dev-guestbook-dev-xperience-aks-cluster-appset
+  name: dev-argocd-dev-experience-aks-cluster-appsets
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -10,24 +10,21 @@ spec:
   - list:
       elements:
       # v0.2.0+ form - does not require cluster/URL keys (but are still supported)
-
-
-## Add guestbook to dev/prod/qa in our vcluster-argocd
       - cluster: dev-xperience-aks-cluster
         url: https://20.94.165.217
         gitRepo: https://github.com/tharpooljha/argocd_demo
         appPath: deployments
         appBranch: HEAD
-        project: dev
-        namespace: guestbook
-        product: guestbook
+        project: infastructure
+        namespace: argocd
+        product: argocd
 
 
- 
-        
+
+
   template:
     metadata:
-      name: '{{cluster}}-argocd'
+      name: '{{project}}-{{cluster}}-{{product}}'
     spec:
       project: '{{project}}'
       syncPolicy:
@@ -38,7 +35,7 @@ spec:
       source:
         repoURL: '{{gitRepo}}'
         targetRevision: '{{appBranch}}'
-        path: '{{appPath}}'
+        path: '{{appPath}}/{{product}}/{{cluster}}/{{project}}'
         directory:
           recurse: true
       destination:
