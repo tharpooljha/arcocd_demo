@@ -22,7 +22,7 @@ spec:
 
   template:
     metadata:
-      name: ''
+      name: 'argocd-infrastructure'
     spec:
       project: '{{project}}'
       source:
