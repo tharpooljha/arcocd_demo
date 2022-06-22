@@ -14,7 +14,7 @@ spec:
   source:
     repoURL: https://github.com/tharpooljha/argocd_demo
     targetRevision: HEAD
-    path: 'deployments/applicationsets/*'
+    path: deployments/applicationsets
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
