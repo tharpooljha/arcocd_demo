@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: dev-infastructure-appsets
+  # You'll usually want to add your resources to the argocd namespace.
+  namespace: argocd
+  # Add a this finalizer ONLY if you want these to cascade delete.
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+
+spec:
+  # The project the application belongs to.
+  project: dev
+  source:
+    repoURL: https://github.com/tharpooljha/argocd_demo
+    targetRevision: HEAD
+    path: deployments/applicationsets/*
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+  syncPolicy:
+    syncOptions:
+     - ApplyOutOfSyncOnly=true
+     - CreateNamespace=true
