@@ -14,8 +14,8 @@ spec:
         appPath: deployments
         appBranch: HEAD
         project: dev
-        namespace: dev
-        product: node-app
+        namespace: argocd
+        product: argocd
 
 
 
@@ -28,7 +28,7 @@ spec:
       source:
         repoURL: '{{gitRepo}}'
         targetRevision: '{{appBranch}}'
-        path: '{{appPath}}/{{product}}/{{project}}'
+        path: '{{appPath}}/{{product}}/{{cluster}}'
         directory:
          recurse: true
       destination:
