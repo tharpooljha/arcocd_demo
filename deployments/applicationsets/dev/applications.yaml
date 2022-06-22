@@ -1,0 +1,38 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: argocd-infrastructure-appsets
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  generators:
+  - list:
+      elements:
+      # v0.2.0+ form - does not require cluster/URL keys (but are still supported)
+      - cluster: dev-xperience-aks-cluster
+        url: https://20.94.165.217
+        gitRepo: https://github.com/tharpooljha/argocd_demo
+        appPath: deployments
+        appBranch: HEAD
+        project: dev
+        namespace: argocd
+        product: argocd
+
+
+
+
+  template:
+    metadata:
+      name: ''
+    spec:
+      project: '{{project}}'
+      source:
+        repoURL: '{{gitRepo}}'
+        targetRevision: HEAD
+        path: '{{appPath}}/{{product}}/{{cluster}}'
+        directory:
+         recurse: true
+      destination:
+        server: '{{url}}'
+        namespace: default

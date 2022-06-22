@@ -26,7 +26,7 @@ spec:
     metadata:
       name: ''
     spec:
-      project: default
+      project: '{{project}}'
       source:
         repoURL: '{{gitRepo}}'
         targetRevision: HEAD
@@ -35,4 +35,4 @@ spec:
          recurse: true
       destination:
         server: '{{url}}'
-        namespace: default
+        namespace: '{{namespace}}'
