@@ -6,7 +6,7 @@ spec:
   selector:
     matchLabels:
       app: node-app-dev
-  replicas: 2
+  #replicas: 2
   template:
     metadata:
       labels:
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: node-app
-          image: ghcr.io/tharpooljha/node_app:1.0.0-broken
+          image: ghcr.io/tharpooljha/node_app:a98d745c72ad757f237c91dee2bc3398aa5c776ff5a9428ef0b75f6ad485d94f
           ports:
             - containerPort: 3000
 
