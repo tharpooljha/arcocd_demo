@@ -1,6 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: dev-xperience-aks-cluster-argocd
-  annotations:
-    link.argocd.argoproj.io/external-link: https://argo-cd.readthedocs.io/en/stable/
+  name: nginx-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
