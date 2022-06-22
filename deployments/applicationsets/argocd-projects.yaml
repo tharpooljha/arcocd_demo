@@ -26,7 +26,7 @@ spec:
     metadata:
       name: ''
     spec:
-      project: argocd
+      project: dev
       source:
         repoURL: '{{gitRepo}}'
         targetRevision: HEAD
