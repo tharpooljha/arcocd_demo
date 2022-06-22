@@ -16,7 +16,22 @@ spec:
         project: dev
         namespace: dev
         product: node-app
-
+      - cluster: dev-xperience-aks-cluster
+        url: https://20.94.165.217
+        gitRepo: https://github.com/tharpooljha/argocd_demo
+        appPath: deployments
+        appBranch: HEAD
+        project: dev
+        namespace: dev
+        product: node-app
+      - cluster: vc-argocd
+        url: https://20.94.165.217
+        gitRepo: https://github.com/tharpooljha/argocd_demo
+        appPath: deployments
+        appBranch: HEAD
+        project: dev
+        namespace: dev
+        product: node-app      
 
 
 
