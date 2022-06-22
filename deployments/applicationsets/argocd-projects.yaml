@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: namespace-appsets
+  name: projects-appsets
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -30,7 +30,7 @@ spec:
       source:
         repoURL: '{{gitRepo}}'
         targetRevision: HEAD
-        path: '{{appPath}}/{{product}}/{{cluster}}'
+        path: '{{appPath}}/{{product}}/{{cluster}}/projects'
         directory:
          recurse: true
       syncPolicy:
