@@ -29,7 +29,7 @@ spec:
       project: '{{project}}'
       source:
         repoURL: '{{gitRepo}}'
-        targetRevision: HEAD
+        targetRevision: '{{appBranch}}'
         path: '{{appPath}}/{{product}}/{{cluster}}'
         directory:
          recurse: true
