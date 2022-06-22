@@ -34,3 +34,7 @@ spec:
       destination:
         server: '{{url}}'
         namespace: '{{namespace}}'
+      syncPolicy:
+        syncOptions:
+         - ApplyOutOfSyncOnly=true
+         - CreateNamespace=true
