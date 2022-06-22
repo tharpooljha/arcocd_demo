@@ -14,7 +14,7 @@ spec:
         appPath: deployments
         appBranch: HEAD
         project: dev
-        namespace: node-app
+        namespace: dev
         product: node-app
 
 
