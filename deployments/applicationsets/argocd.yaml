@@ -13,9 +13,9 @@ spec:
       - cluster: dev-xperience-aks-cluster
         url: https://20.94.165.217
         gitRepo: https://github.com/tharpooljha/argocd_demo
-        appPath: deployments/argocd
+        appPath: deployments
         appBranch: HEAD
-        project: default
+        project: argocd
         namespace: argocd
         product: argocd
 
@@ -31,7 +31,7 @@ spec:
         repoURL: '{{gitRepo}}'
         targetRevision: HEAD
         # This 'default' value is not used: it is is replaced by the generator's template path, above
-        path: '{{appPath}}/{{cluster}}'
+        path: '{{appPath}}/{{product}}/{{cluster}}'
         directory:
          recurse: true
       destination:
