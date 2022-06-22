@@ -33,6 +33,11 @@ spec:
         path: '{{appPath}}/{{product}}/{{cluster}}'
         directory:
          recurse: true
+            syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
+        allowEmpty: true
       destination:
         server: '{{url}}'
         namespace: argocd
