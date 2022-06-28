@@ -22,7 +22,7 @@ spec:
 
   template:
     metadata:
-      name: '{{product}}'
+      name: '{{cluster}}-{{product}}-{{project}}'
     spec:
       project: '{{project}}'
       source:
