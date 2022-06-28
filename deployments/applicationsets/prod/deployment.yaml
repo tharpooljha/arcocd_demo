@@ -1,0 +1,45 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: prod-deployment-appsets
+  namespace: argocd
+spec:
+  generators:
+  - list:
+      elements:
+      # v0.2.0+ form - does not require cluster/URL keys (but are still supported)
+# Add node-app      
+      - cluster: dev-xperience-aks-cluster
+        url: https://20.94.165.217
+        gitRepo: https://github.com/tharpooljha/argocd_demo
+        appPath: deployments
+        appBranch: HEAD
+        project: prod
+        namespace: prod
+        product: node-app
+
+
+
+
+  template:
+    metadata:
+      name: '{{cluster}}-{{product}}-{{project}}'
+    spec:
+      project: '{{project}}'
+      source:
+        repoURL: '{{gitRepo}}'
+        targetRevision: '{{appBranch}}'
+        path: '{{appPath}}/{{product}}/{{cluster}}/{{project}}'
+        directory:
+         recurse: true
+      destination:
+        server: '{{url}}'
+        namespace: '{{namespace}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+          allowEmpty: false
+        syncOptions:
+         - ApplyOutOfSyncOnly=true
+         - CreateNamespace=true
