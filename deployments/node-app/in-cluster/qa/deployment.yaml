@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-app-qa
+spec:
+  selector:
+    matchLabels:
+      app: node-app-qa
+#  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: node-app-qa
+    spec:
+      containers:
+        - name: node-app-qa
+          image: ghcr.io/tharpooljha/node_app:latest
+          ports:
+            - containerPort: 3000
