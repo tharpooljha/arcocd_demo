@@ -6,7 +6,7 @@ spec:
   selector:
     matchLabels:
       app: node-app-qa
-  replicas: 2
+#  replicas: 2
   template:
     metadata:
       labels:
