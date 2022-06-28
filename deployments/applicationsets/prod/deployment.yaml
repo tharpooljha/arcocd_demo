@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: prod-deployment-appsets
+  name: argocd-infrastructure-appsets
   namespace: argocd
 spec:
   generators:
@@ -9,6 +9,14 @@ spec:
       elements:
       # v0.2.0+ form - does not require cluster/URL keys (but are still supported)
 # Add node-app      
+      - cluster: in-cluster
+        url: https://kubernetes.default.svc
+        gitRepo: https://github.com/tharpooljha/argocd_demo
+        appPath: deployments
+        appBranch: HEAD
+        project: prod
+        namespace: prod
+        product: node-app
       - cluster: dev-xperience-aks-cluster
         url: https://20.94.165.217
         gitRepo: https://github.com/tharpooljha/argocd_demo
@@ -17,8 +25,40 @@ spec:
         project: prod
         namespace: prod
         product: node-app
+      - cluster: vc-argocd
+        url: https://20.94.165.217
+        gitRepo: https://github.com/tharpooljha/argocd_demo
+        appPath: deployments
+        appBranch: HEAD
+        project: prod
+        namespace: prod
+        product: node-app      
 
-
+## Add guestbook
+      - cluster: in-cluster
+        url: https://kubernetes.default.svc
+        gitRepo: https://github.com/tharpooljha/argocd_demo
+        appPath: deployments
+        appBranch: HEAD
+        project: prod
+        namespace: prod
+        product: guestbook
+      - cluster: dev-xperience-aks-cluster
+        url: https://20.94.165.217
+        gitRepo: https://github.com/tharpooljha/argocd_demo
+        appPath: deployments
+        appBranch: HEAD
+        project: prod
+        namespace: prod
+        product: guestbook
+      - cluster: vc-argocd
+        url: https://20.94.165.217
+        gitRepo: https://github.com/tharpooljha/argocd_demo
+        appPath: deployments
+        appBranch: HEAD
+        project: prod
+        namespace: prod
+        product: guestbook   
 
 
   template:

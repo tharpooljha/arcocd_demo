@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: argocd-deployment-appsets
+  name: qa-infrastructure-appsets
   namespace: argocd
 spec:
   generators:
@@ -14,24 +14,24 @@ spec:
         gitRepo: https://github.com/tharpooljha/argocd_demo
         appPath: deployments
         appBranch: HEAD
-        project: dev
-        namespace: dev
+        project: qa
+        namespace: qa
         product: node-app
       - cluster: dev-xperience-aks-cluster
         url: https://20.94.165.217
         gitRepo: https://github.com/tharpooljha/argocd_demo
         appPath: deployments
         appBranch: HEAD
-        project: dev
-        namespace: dev
+        project: qa
+        namespace: qa
         product: node-app
       - cluster: vc-argocd
         url: https://20.94.165.217
         gitRepo: https://github.com/tharpooljha/argocd_demo
         appPath: deployments
         appBranch: HEAD
-        project: dev
-        namespace: dev
+        project: qa
+        namespace: qa
         product: node-app      
 
 ## Add guestbook
@@ -40,24 +40,24 @@ spec:
         gitRepo: https://github.com/tharpooljha/argocd_demo
         appPath: deployments
         appBranch: HEAD
-        project: dev
-        namespace: dev
+        project: qa
+        namespace: qa
         product: guestbook
       - cluster: dev-xperience-aks-cluster
         url: https://20.94.165.217
         gitRepo: https://github.com/tharpooljha/argocd_demo
         appPath: deployments
         appBranch: HEAD
-        project: dev
-        namespace: dev
+        project: qa
+        namespace: qa
         product: guestbook
       - cluster: vc-argocd
         url: https://20.94.165.217
         gitRepo: https://github.com/tharpooljha/argocd_demo
         appPath: deployments
         appBranch: HEAD
-        project: dev
-        namespace: dev
+        project: qa
+        namespace: qa
         product: guestbook   
 
 

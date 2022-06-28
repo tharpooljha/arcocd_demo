@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prod-infastructure-appsets
+  # You'll usually want to add your resources to the argocd namespace.
+  namespace: argocd
+  # Add a this finalizer ONLY if you want these to cascade delete.
+  # finalizers:
+  #   - resources-finalizer.argocd.argoproj.io
+  labels:
+    environment: prod
+
+spec:
+  # The project the application belongs to.
+  project: prod
+  source:
+    repoURL: https://github.com/tharpooljha/argocd_demo
+    targetRevision: HEAD
+    path: 'deployments/applicationsets/prod'
+    # plugin:
+    #   name: argocd-vault-plugin-kustomize
+  destination:
+    name: dev-xperience-aks-cluster
+    namespace: argocd
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: false
+    syncOptions:
+     - ApplyOutOfSyncOnly=true
+     - CreateNamespace=true

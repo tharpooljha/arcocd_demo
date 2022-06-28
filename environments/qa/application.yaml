@@ -1,22 +1,22 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: prod-infastructure-appsets
+  name: qa-infastructure-appsets
   # You'll usually want to add your resources to the argocd namespace.
   namespace: argocd
   # Add a this finalizer ONLY if you want these to cascade delete.
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
+  # finalizers:
+  #   - resources-finalizer.argocd.argoproj.io
   labels:
-    environment: prod
+    environment: qa
 
 spec:
   # The project the application belongs to.
-  project: dev
+  project: qa
   source:
     repoURL: https://github.com/tharpooljha/argocd_demo
     targetRevision: HEAD
-    path: 'deployments/applicationsets/prod'
+    path: 'deployments/applicationsets/qa'
     # plugin:
     #   name: argocd-vault-plugin-kustomize
   destination:
