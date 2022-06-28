@@ -37,7 +37,7 @@ spec:
 
   template:
     metadata:
-      name: '{{product}}-{{project}}'
+      name: '{{cluster}}-{{product}}-{{project}}'
     spec:
       project: '{{project}}'
       source:
@@ -50,6 +50,10 @@ spec:
         server: '{{url}}'
         namespace: '{{namespace}}'
       syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+          allowEmpty: false
         syncOptions:
          - ApplyOutOfSyncOnly=true
          - CreateNamespace=true
