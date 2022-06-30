@@ -26,7 +26,7 @@ spec:
         namespace: dev
         product: node-app
       - cluster: vc-argocd
-        url: https://20.94.165.217
+        url: https://20.118.117.30
         gitRepo: https://github.com/tharpooljha/argocd_demo
         appPath: deployments
         appBranch: HEAD
