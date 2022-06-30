@@ -35,30 +35,30 @@ spec:
         product: node-app      
 
 # ## Add guestbook
-#       - cluster: in-cluster
-#         url: https://kubernetes.default.svc
-#         gitRepo: https://github.com/tharpooljha/argocd_demo
-#         appPath: deployments
-#         appBranch: HEAD
-#         project: dev
-#         namespace: dev
-#         product: guestbook
-#       - cluster: dev-xperience-aks-cluster
-#         url: https://20.94.165.217
-#         gitRepo: https://github.com/tharpooljha/argocd_demo
-#         appPath: deployments
-#         appBranch: HEAD
-#         project: dev
-#         namespace: dev
-#         product: guestbook
-#       - cluster: vc-argocd
-#         url: https://20.94.165.217
-#         gitRepo: https://github.com/tharpooljha/argocd_demo
-#         appPath: deployments
-#         appBranch: HEAD
-#         project: dev
-#         namespace: dev
-#         product: guestbook   
+      - cluster: in-cluster
+        url: https://kubernetes.default.svc
+        gitRepo: https://github.com/tharpooljha/argocd_demo
+        appPath: deployments
+        appBranch: HEAD
+        project: dev
+        namespace: dev
+        product: guestbook
+      - cluster: dev-xperience-aks-cluster
+        url: https://20.94.165.217
+        gitRepo: https://github.com/tharpooljha/argocd_demo
+        appPath: deployments
+        appBranch: HEAD
+        project: dev
+        namespace: dev
+        product: guestbook
+      - cluster: vc-argocd
+        url: https://20.94.165.217
+        gitRepo: https://github.com/tharpooljha/argocd_demo
+        appPath: deployments
+        appBranch: HEAD
+        project: dev
+        namespace: dev
+        product: guestbook   
 
 
   template:
