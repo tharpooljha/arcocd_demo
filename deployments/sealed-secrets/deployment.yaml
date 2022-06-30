@@ -1,16 +1,16 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
 metadata:
-  name: sealed-secrets
-  namespace: argocd
+  name: mysecret
+  namespace: dev
 spec:
-  project: services
-  source:
-    chart: sealed-secrets
-    repoURL: https://bitnami-labs.github.io/sealed-secrets
-    targetRevision: 0.17.5
-    # helm:
-    #   releaseName: sealed-secrets
-  destination:
-    server: "https://kubernetes.default.svc"
-    namespace: kubeseal
+  encryptedData:
+    foo: AgBy3i4OJSWK+PiTySYZZA9rO43cGDEq.....
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mysecret
+  namespace: dev
+data:
+  foo: bar  # <- base64 encoded "bar"
