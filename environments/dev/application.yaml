@@ -20,7 +20,7 @@ spec:
     # plugin:
     #   name: argocd-vault-plugin-kustomize
   destination:
-    name: in-cluster
+    name: dev-infastructure-appsets
     namespace: argocd
   syncPolicy:
     automated:
