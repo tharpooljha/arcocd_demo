@@ -43,6 +43,7 @@ spec:
         project: dev
         namespace: dev
         product: guestbook
+
       - cluster: dev-xperience-aks-cluster
         url: https://20.94.165.217
         gitRepo: https://github.com/tharpooljha/argocd_demo
@@ -51,6 +52,7 @@ spec:
         project: dev
         namespace: dev
         product: guestbook
+
       - cluster: vc-argocd
         url: https://20.118.117.30
         gitRepo: https://github.com/tharpooljha/argocd_demo
@@ -69,6 +71,7 @@ spec:
         project: dev
         namespace: dev
         product: jhaSvc
+
       - cluster: dev-xperience-aks-cluster
         url: https://20.94.165.217
         gitRepo: https://github.com/tharpooljha/argocd_demo
@@ -77,6 +80,7 @@ spec:
         project: dev
         namespace: dev
         product: jhaSvc
+        
       - cluster: vc-argocd
         url: https://20.118.117.30
         gitRepo: https://github.com/tharpooljha/argocd_demo
