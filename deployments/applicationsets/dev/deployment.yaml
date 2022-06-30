@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: node-app-deployment-appsets
+  name: dev-deployment-appsets
   namespace: argocd
 spec:
   generators:
