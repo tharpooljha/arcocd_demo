@@ -1,7 +1,7 @@
 apiVersion: bitnami.com/v1alpha1
 kind: SealedSecret
 metadata:
-  name: mysecret
+  name: supersekret
   namespace: dev
 spec:
   encryptedData:
@@ -10,7 +10,12 @@ spec:
 apiVersion: v1
 kind: Secret
 metadata:
-  name: mysecret
+  name: supersekret
   namespace: dev
 data:
   foo: bar  # <- base64 encoded "bar"
+
+
+
+# kubectl create secret -n dispatch generic mysecret --dry-run -o yaml --from-literal=my-secret=value | \
+#     kubeseal --format yaml --cert mycert.pem >> secrets.yaml
