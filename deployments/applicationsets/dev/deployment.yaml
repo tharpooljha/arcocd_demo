@@ -70,7 +70,7 @@ spec:
         appBranch: HEAD
         project: dev
         namespace: dev
-        product: jhaSvc
+        product: jhasvc
 
       - cluster: dev-xperience-aks-cluster
         url: https://20.94.165.217
@@ -79,8 +79,8 @@ spec:
         appBranch: HEAD
         project: dev
         namespace: dev
-        product: jhaSvc
-        
+        product: jhasvc
+
       - cluster: vc-argocd
         url: https://20.118.117.30
         gitRepo: https://github.com/tharpooljha/argocd_demo
@@ -88,7 +88,7 @@ spec:
         appBranch: HEAD
         project: dev
         namespace: dev
-        product: jhaSvc   
+        product: jhasvc   
 
   template:
     metadata:
