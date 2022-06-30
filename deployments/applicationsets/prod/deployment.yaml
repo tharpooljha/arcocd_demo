@@ -70,7 +70,7 @@ spec:
         appBranch: HEAD
         project: prod
         namespace: prod
-        product: jhaSvc
+        product: jhasvc
 
       - cluster: dev-xperience-aks-cluster
         url: https://20.94.165.217
@@ -79,7 +79,7 @@ spec:
         appBranch: HEAD
         project: prod
         namespace: prod
-        product: jhaSvc
+        product: jhasvc
         
       - cluster: vc-argocd
         url: https://20.118.117.30
@@ -88,7 +88,7 @@ spec:
         appBranch: HEAD
         project: prod
         namespace: prod
-        product: jhaSvc   
+        product: jhasvc   
 
   template:
     metadata:
