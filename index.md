@@ -64,8 +64,9 @@ chmod +x /usr/local/bin/argocd
 `argocd app create guestbook --repo https://github.com/argoproj/argocd-example-apps.git --path guestbook --dest-server https://kubernetes.default.svc --dest-namespace default`
 9. Get status
 `argocd app get guestbook`
-10. Deploy (sync)
-`argocd app sync guestbook`
+10. Deploy (sync) `argocd app sync guestbook`
+
+
 ```
 azureuser@AZEISDEVMGMT2:~/argocd$ argocd app get guestbook
 Name:               guestbook
