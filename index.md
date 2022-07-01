@@ -87,7 +87,7 @@ GROUP  KIND        NAMESPACE  NAME          STATUS  HEALTH       HOOK  MESSAGE
 apps   Deployment  default    guestbook-ui  Synced  Progressing        deployment.apps/guestbook-ui created
 ```
 
-You can test to see if the guestbook is deployed (Should return title): 
+You can test to see if the guestbook is deployed (Should return title) 
 
 `kubectl exec "$(kubectl get pod -l app=helm-guestbook -o jsonpath='{.items[0].metadata.name}')" -c helm-guestbook -- curl -sS helm-guestbook | grep -o "<title>.*</title>"`
 
