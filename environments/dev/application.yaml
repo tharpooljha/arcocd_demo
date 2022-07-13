@@ -16,7 +16,7 @@ spec:
   source:
     repoURL: https://github.com/tharpooljha/argocd_demo
     targetRevision: HEAD
-    path: 'apps/applicationsets/dev'
+    path: 'apps/applicationsets/*'
     # plugin:
     #   name: argocd-vault-plugin-kustomize
   destination:
