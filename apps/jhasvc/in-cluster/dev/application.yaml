@@ -1,6 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: jack-henry-svc
+  name: jack-henry-svc-dev
   annotations:
     link.argocd.argoproj.io/external-link: http://jackhenry.com
