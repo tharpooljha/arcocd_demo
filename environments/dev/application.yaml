@@ -18,7 +18,7 @@ spec:
     targetRevision: HEAD
     path: 'apps/applicationsets/dev'
     # plugin:
-    #   name: argocd-vault-plugin-kustomize
+    #   name: argocd-vault-plugin
   destination:
     name: in-cluster
     namespace: argocd
