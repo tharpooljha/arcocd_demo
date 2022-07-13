@@ -106,7 +106,7 @@ spec:
         appBranch: HEAD
         project: dev
         namespace: argocd
-        product: xperience
+        product: argocd
 
       - cluster: vc-argocd
         url: https://20.118.117.30
