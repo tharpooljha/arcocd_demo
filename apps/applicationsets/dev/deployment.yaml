@@ -101,7 +101,7 @@ spec:
 
       - cluster: dev-xperience-aks-cluster
         url: https://20.94.165.217
-        gitRepo: https://github.com/xperience/dev-xperience-aks-cluster
+        gitRepo: https://github.com/tharpooljha/argocd_demo
         appPath: apps
         appBranch: HEAD
         project: dev
