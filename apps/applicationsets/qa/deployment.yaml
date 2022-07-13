@@ -42,7 +42,7 @@ spec:
         appBranch: HEAD
         project: qa
         namespace: qa
-        product: guestbook
+        product: argocd-vault-plugin
       - cluster: dev-xperience-aks-cluster
         url: https://20.94.165.217
         gitRepo: https://github.com/tharpooljha/argocd_demo
@@ -50,7 +50,7 @@ spec:
         appBranch: HEAD
         project: qa
         namespace: qa
-        product: guestbook
+        product: argocd-vault-plugin
       - cluster: vc-argocd
         url: https://20.94.165.217
         gitRepo: https://github.com/tharpooljha/argocd_demo
@@ -58,7 +58,7 @@ spec:
         appBranch: HEAD
         project: qa
         namespace: qa
-        product: guestbook   
+        product: argocd-vault-plugin   
 
 
   template:

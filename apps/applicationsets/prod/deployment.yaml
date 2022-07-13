@@ -70,7 +70,7 @@ spec:
         appBranch: HEAD
         project: prod
         namespace: prod
-        product: jhasvc
+        product: argocd-vault-plugin
 
       - cluster: dev-xperience-aks-cluster
         url: https://20.94.165.217
@@ -79,7 +79,7 @@ spec:
         appBranch: HEAD
         project: prod
         namespace: prod
-        product: jhasvc
+        product: argocd-vault-plugin  
         
       - cluster: vc-argocd
         url: https://20.118.117.30
@@ -88,7 +88,7 @@ spec:
         appBranch: HEAD
         project: prod
         namespace: prod
-        product: jhasvc   
+        product: argocd-vault-plugin     
 
   template:
     metadata:
