@@ -1,7 +1,7 @@
 kind: Namespace
 apiVersion: v1
 metadata:
-  name: services
+  name: prod
   labels:
-    name: services
+    name: prod
 #    istio.io/rev: canary
