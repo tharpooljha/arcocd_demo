@@ -1,0 +1,19 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  name: github-ssh-creds
+  namespace: shared-services
+spec:
+  encryptedData:
+    url: AgB6ZcHRW0lf//hQmTKtP7Yybh3xUrnaWD8+OZ9YsePjKrVqTgGO2P2Q7GJYJt5lwcekI2RrKw
+    sl8Ds6BeYfBfI6Bqo8PYS38aeJbrYIxfmtsqdNy0nNHj5s8p9i1R2XrX2yHsoD/tiA577I
+    sshPrivateKey: SiCEwTkY0bzOH7w+qyIL6o/MfXxByHTU07UL+kcBxsEasBn2R4H5WcVXNpy58AV6f
+    fIofijT4UOe2oVA3Ix36d95BgGjhUr3LjHg+LObnEMQJnEaCRUGZhq3U2D2o97DvIU5L36QO4AoSDLWlDd
+    ioXtCaFDDNPn+5hNw2oxpAIIxkiFnNDOuUmFyBuF65ZLs4ytQEDoQYHemRGMQ+1UV9EFmAHKUA==
+  template:
+    data: null
+    metadata:
+      labels:
+        argocd.argoproj.io/secret-type: repository
+      name: github-ssh-creds
+      namespace: shared-services
