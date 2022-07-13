@@ -90,14 +90,14 @@ spec:
       #   namespace: dev
       #   product: argocd-vault-plugin   
 # Add argocd resources.
-      # - cluster: in-cluster
-      #   url: https://kubernetes.default.svc
-      #   gitRepo: https://github.com/tharpooljha/argocd_demo
-      #   appPath: apps
-      #   appBranch: HEAD
-      #   project: dev
-      #   namespace: argocd
-      #   product: argocd
+      - cluster: in-cluster
+        url: https://kubernetes.default.svc
+        gitRepo: https://github.com/tharpooljha/argocd_demo
+        appPath: apps
+        appBranch: HEAD
+        project: dev
+        namespace: argocd
+        product: argocd
 
       # - cluster: dev-xperience-aks-cluster
       #   url: https://20.94.165.217
