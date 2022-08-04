@@ -1,8 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: in-cluster-argocd-vault-plugin-dev
-  namespace: argocd
+  name: argocd-repo-server
 spec:
   template:
     spec:
